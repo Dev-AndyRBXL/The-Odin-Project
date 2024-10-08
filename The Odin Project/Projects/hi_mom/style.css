@@ -1,0 +1,224 @@
+/* 
+  There is some slight errors ngl 
+*/
+/* 
+  But it is pretty good for it to
+  be done without any external gui-
+  dance aside from the image of re-
+  ference 
+*/
+
+body {
+  font-family: Roboto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.header {
+  background-color: #1f2937;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 6px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header.logo {
+  font-size: 24px;
+  color: #f9faf8;
+  font-weight: 900;
+  padding: 0;
+  margin-right: 439.734px;
+}
+
+.title {
+  font-size: 48px;
+  color: #f9faf8;
+  font-weight: 900;
+  max-width: 500px;
+  margin: 0;
+  margin-right: 25px;
+}
+
+.header .container .main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .container .main .cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.cont p {
+  color: #f9faf8;
+  font-weight: lighter;
+  margin: 0;
+  max-width: 500px;
+  margin-right: 25px;
+}
+
+.header img {
+  background-color: rgb(126, 126, 126);
+  width: 350px;
+  height: 175px;
+  align-self: center;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.header .container .secondary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.secondary ul {
+  list-style-type: none;
+  display: flex;
+  gap: 14px;
+}
+
+.header .container button {
+  background-color: #3882f6;
+  color: #f9faf8;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 973px;
+  padding-top: 48px;
+  padding-bottom: 96px;
+}
+
+.content .container {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 50vh;
+  justify-content: center;
+}
+
+.content .subtitle {
+  color: #1f2937;
+  font-size: xx-large;
+  font-weight: 900;
+  align-self: center;
+  padding: 0;
+  margin-bottom: 48px;
+}
+
+.content .container .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .box img {
+  outline: auto;
+  outline-color: #3882f6;
+  border-radius: 15px;
+  width: 128px;
+  height: 128px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.card .description {
+  text-align: center;
+  max-width: 128px;
+}
+
+.quote {
+  background-color: #e5e7eb;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 70px;
+  padding-bottom: 51px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 673px;
+}
+
+.author {
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+.quote p {
+  font-size: 24px;
+  font-style: italic;
+  margin: 0;
+}
+
+.call.action {
+  padding: 50px 100px 50px 100px;
+  min-width: 773px;
+}
+
+.call.action .container {
+  background-color: #3882f6;
+  border-radius: 8px;
+  padding: 35px 75px 35px 75px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.call.action .container .left p {
+  font-size: smaller;
+  font-weight: 100;
+}
+
+.call.action .container .left p,
+.call.action .container .left #subtext {
+  color: #f9faf8;
+  padding: 0;
+  margin: 0;
+}
+
+.call.action .container .right #sign-up {
+  background-color: #3882f6;
+  color: #f9faf8;
+  border-color: #f9faf8;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 5px 25px 5px 25px;
+}
+
+.footer {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 10px 25px 10px;
+  min-width: 973px;
+  font-size: small;
+}
+
+a {
+  text-decoration: none;
+  color: #f9faf8;
+}

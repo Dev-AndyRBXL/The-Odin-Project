@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: rgb(255, 166, 0);
+    -webkit-text-stroke: 0.1px;
+    -webkit-text-stroke-color: rgb(255, 241, 241);
+    outline-color: rgb(255, 174, 0);
+    outline-style: dashed;
+}
+
+.description {
+    background-color: rgb(255, 212, 249);
+    font-family: cursive;
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+.container {
+    background-color: rgb(208, 199, 230);
+    padding: 35px;
+    border-radius: 15px;
+}
+
+.container .recipes {
+    font-family: cursive;
+    font-size: 25px;
+    color: whitesmoke;
+    background-color: transparent;
+}
+
+.container h2 {
+    color: white;
+    -webkit-text-stroke: 0.1px;
+    -webkit-text-stroke-color: yellow;
+}
+
+.recipes {
+    width: 5pc;
+    height: auto;
+    margin-left: 15px;
+}
