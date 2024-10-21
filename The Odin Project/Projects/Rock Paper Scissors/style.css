@@ -1,11 +1,41 @@
-/*
-.container {
-  background-color: rgb(241, 237, 0);
-  color: white;
-  font-family: cursive, sans-serif;
-  font-size: larger;
-  font-weight: bold;
+* {
+  background-color: whitesmoke;
+  font-family: Georgia, sans-serif;
   border-radius: 5px;
-  padding: 15px;
 }
-*/
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container .resultArea {
+  background-color: rgb(56, 56, 56);
+  color: white;
+  width: 250px;
+  height: 50px;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.resultArea .result {
+  background-color: inherit;
+  color: rgb(249, 255, 200);
+  padding: 0 5px 0 5px;
+}
+
+button {
+  background-color: rgb(167, 167, 167);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
