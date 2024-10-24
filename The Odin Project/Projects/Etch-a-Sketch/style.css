@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(15, 15, 36);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: grid;
+  width: 500px;
+  height: 500px;
+}
+
+.container div.square {
+  background-color: none;
+  border: 1px solid white;
+  transition: background-color 0.25s ease;
+}
+
+/* 
+.container div.square:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+} 
+ */
+
+#createGridBtn, #resetGridBtn {
+  background-color: rgba(168, 168, 168, 0.35);
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bold;
+  border: solid 1px rgb(179, 179, 179);
+  border-radius: 5px;
+  margin: 25px 0 15px 0;
+  padding: 5px 25px 5px 25px;
+}
+
+#createGridBtn:hover, #resetGridBtn {
+  cursor: pointer;
+}
