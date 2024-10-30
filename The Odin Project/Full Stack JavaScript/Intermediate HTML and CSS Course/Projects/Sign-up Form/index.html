@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up Form</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Furnitures.com</h1>
+      <ul>
+        <a href="#"> <li>Home</li> </a
+        ><a href="#"> <li>About us</li> </a
+        ><a href="https://amazon.com">
+          <li>Products</li>
+        </a>
+      </ul>
+    </div>
+    <div class="mainHolder">
+      <div class="main">
+        <div class="logoHolder">
+          <img
+            src="./assets/images/logo background.png"
+            alt="Furniture banner"
+          />
+        </div>
+        <div class="container">
+          <div class="top">
+            <h1>Best Furniture <small>&copy;</small></h1>
+            <p>
+              No where else will be an opportunity of this magnitude...
+              <strong
+                ><a href="https://amazon.com"
+                  ><span>Purchase <em>now</em>!</span></a
+                ></strong
+              >
+            </p>
+          </div>
+          <div class="formHolder">
+            <h2 style="margin: 0">Register now!</h2>
+
+            <form name="mainForm" action="#" method="post">
+              <p>
+                <label for="firstName">First Name</label
+                ><input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  maxlength="20"
+                  placeholder="David"
+                  required
+                /><label for="lastName">Last Name</label
+                ><input type="text" name="lastName" id="lastName" maxlength="20" placeholder="Malan" required />
+              </p>
+              <p>
+                <label for="email">Email</label
+                ><input type="email" name="email" id="email" placeholder="david@yourdomain.com" required /><label
+                  for="phoneNumber"
+                  >Phone Number</label
+                ><input
+                  type="tel"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  placeholder="e.g.: 811-555-0231"
+                  required
+                />
+              </p>
+              <p>
+                <label for="password">Password</label
+                ><input type="password" name="password" id="password" minlength="8" placeholder="12345678" required /><label
+                  for="confirmPassword"
+                  >Confirm Password</label
+                ><input
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  minlength="8"
+                  placeholder="12345678"
+                  required
+                />
+              </p>
+            </form>
+          </div>
+          <div class="bottom">
+            <button id="createAccount">Create Account</button>
+            <p>Already have an account? <a href="#">Log in</a></p>
+          </div>
+        </div>
+      </div>
+      <!--button id="lightmode-darkmode" style="background-color: blue;">light mode</button>-->
+    </div>
+
+    <script>
+      let isLightMode = false;
+
+      function toggleTheme() {
+        const body = document.body;
+        const header = document.querySelector(".header");
+        const inputs = document.querySelectorAll("form input");
+        const button = document.querySelector("button");
+
+        if (isLightMode) {
+          body.classList.remove("light-mode");
+          header.classList.remove("light-mode");
+          inputs.forEach((input) => input.classList.remove("light-mode"));
+          button.classList.remove("light-mode");
+        } else {
+          body.classList.add("light-mode");
+          header.classList.add("light-mode");
+          inputs.forEach((input) => input.classList.add("light-mode"));
+          button.classList.add("light-mode");
+        }
+
+        isLightMode = !isLightMode;
+      }
+
+      /*const button = document.getElementById("lightmode-darkmode");
+      button.addEventListener("click", () => {
+        button.innerHTML = "dark mode";
+        toggleTheme();
+      });*/
+
+      window.onload = () => {
+        if (/*isLightMode*/ false) {
+          toggleTheme();
+        }
+      };
+    </script>
+
+    <script src="./index.js" defer></script>
+  </body>
+</html>

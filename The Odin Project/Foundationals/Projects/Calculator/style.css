@@ -1,0 +1,92 @@
+body {
+  background-color: rgb(90, 90, 90);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.calculator .holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.display {
+  background-color: rgb(18, 46, 0);
+  color: white;
+  font-family: "Seven Segments";
+  src: url('./Fonts/Seven\ Segment.ttf') format('truetype');
+  font-weight: bold;
+  font-size:xx-large;
+  display: flex;
+  justify-content: start;
+  align-items: center;  
+  flex: 1 1 auto;
+  border: solid;
+  border-color: rgb(255, 123, 0);
+  border-width: 5px;
+  border-radius: 15px 15px 0 0;
+  width: 265px;
+  padding: 5px 10px;
+}
+
+.operators {
+  background-color: rgb(29, 29, 29);
+  border-radius: 0 0 0 15px;
+  height: 322px;
+}
+
+.numbers {
+  background-color: rgb(44, 42, 49);
+  border-radius: 0 0 15px 0;
+  height: 322px;
+  width: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+
+.numbers button {
+  background-color: rgb(95, 95, 95);
+  color: white;
+  border-radius: 50%;
+  margin: 10px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.operators button {
+  background-color: rgb(255, 123, 0);
+  color: white;
+  border-radius: 50%;
+  margin: 20px 8px 20px 8px;
+  height: 55px;
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  box-shadow: -2px 2px 7px 1px rgba(0, 0, 0, 0.5);
+}
