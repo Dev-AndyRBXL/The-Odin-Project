@@ -171,6 +171,14 @@ input#lastName:invalid {
   border: 1px rgb(255, 0, 0) solid;
 }
 
+.top h1 {
+  margin-bottom: 5px;
+}
+
+.top p {
+  margin-top: 0;
+}
+
 button {
   background-color: green;
   border: none;
