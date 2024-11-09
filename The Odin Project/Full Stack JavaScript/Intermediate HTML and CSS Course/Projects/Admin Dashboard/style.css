@@ -1,9 +1,19 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  animation: fadeIn 250ms ease-out;
 }
 
 html,
@@ -29,6 +39,7 @@ body {
   grid-template-rows: min-content;
   grid-auto-flow: row;
   height: 100%;
+  transition: 100ms;
 }
 
 .left-sidebar-logo {
@@ -382,7 +393,7 @@ ul {
 
 ul li {
   background-color: transparent;
-  transition: 250ms;
+  transition: background-color 250ms;
 }
 
 ul li:hover {

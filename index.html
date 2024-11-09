@@ -1,26 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+      body {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+      }
+
+      span {
+        font-weight: bold;
+      }
+
+      span::after {
+        content: ":";
+      }
+
+      ul,
+      ol {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+        gap: calc(1em / 2);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <span>Foundationals</span>
-    <a href="./The Odin Project/Foundationals/Projects/odin-recipes/">Odin recipes</a>
-    <a href="./The Odin Project/Foundationals/Projects/Landing Page/">Landing page</a>
-    <a href="./The Odin Project/Foundationals/Projects/Etch-a-Sketch/">Etch-a-Sketch</a>
-    <a href="./The Odin Project/Foundationals/Projects/Rock Paper Scissors/">Rock Paper Scissors</a>
-    <a href="./The Odin Project/Foundationals/Projects/Calculator/">Calculator</a>
+    <ul>
+      <a href="./The Odin Project/Foundationals/Projects/odin-recipes/"
+        >Odin recipes</a
+      >
+      <a href="./The Odin Project/Foundationals/Projects/Landing Page/"
+        >Landing page</a
+      >
+      <a href="./The Odin Project/Foundationals/Projects/Etch-a-Sketch/"
+        >Etch-a-Sketch</a
+      >
+      <a href="./The Odin Project/Foundationals/Projects/Rock Paper Scissors/"
+        >Rock Paper Scissors</a
+      >
+      <a href="./The Odin Project/Foundationals/Projects/Calculator/"
+        >Calculator</a
+      >
+    </ul>
     <span>JavaScript Path</span>
-    <span>Intermediate HTML and CSS course</span>
-    <a href="./The Odin Project/Full Stack JavaScript/Intermediate HTML and CSS Course/Projects/Sign-up Form/">Sign-up Form</a>
-    <a href="./The Odin Project/Full Stack JavaScript/Intermediate HTML and CSS Course/Projects/Admin Dashboard/">Admin dashboard</a>
-</body>
+    <ol>
+      <span>Intermediate HTML and CSS course</span>
+      <ul>
+        <a
+          href="./The Odin Project/Full Stack JavaScript/Intermediate HTML and CSS Course/Projects/Sign-up Form/"
+          >Sign-up Form</a
+        >
+        <a
+          href="./The Odin Project/Full Stack JavaScript/Intermediate HTML and CSS Course/Projects/Admin Dashboard/"
+          >Admin dashboard</a
+        >
+      </ul>
+    </ol>
+    <script>
+      document.querySelectorAll("a").forEach((element) => {
+        let iframe;
+
+        element.addEventListener("mouseover", () => {
+          if (!iframe) {
+            iframe = document.createElement("iframe");
+            iframe.src = element.href;
+            iframe.style.width = "300px";
+            iframe.style.height = "200px";
+            iframe.style.border = "none";
+            iframe.style.borderRadius = "10px";
+            iframe.style;
+            iframe.style.position = "absolute";
+            element.appendChild(iframe);
+          }
+        });
+
+        element.addEventListener("mouseleave", () => {
+          if (iframe) {
+            iframe.remove();
+            iframe = null;
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
