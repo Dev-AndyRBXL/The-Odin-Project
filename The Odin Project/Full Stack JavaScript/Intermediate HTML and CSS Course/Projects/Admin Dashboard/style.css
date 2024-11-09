@@ -118,7 +118,7 @@ body {
 }
 
 .top-header nav.search-bar #searchbox {
-  background-color: #e9e9e9;
+  background-color: #f7f5f5;
   color: black;
   font-size: large;
   border: none;
@@ -227,7 +227,7 @@ main {
 .projects-container {
   background-color: transparent;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 20px;
   max-height: 74.5vh;
   padding-right: 10px;
@@ -255,6 +255,7 @@ main {
 
 .card p {
   margin-top: 5px;
+  color: #555;
 }
 
 .card-actions {
@@ -308,7 +309,7 @@ main {
 
 .announcements-container-item {
   padding: 1rem;
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2be;
   flex-shrink: 0;
 }
 
@@ -365,7 +366,7 @@ main {
   color: #777;
 }
 
-@media (max-width: 956px) {
+@media (max-width: 1036px) {
   .left-sidebar {
     grid-template-columns: 70px;
   }
@@ -398,9 +399,14 @@ button {
   cursor: pointer;
 }
 
+p {
+  word-spacing: 2px;
+  line-height: 1.2;
+}
+
 svg {
   fill: rgba(0, 0, 0, 0.301);
-  transition: fill 300ms ease-out;
+  transition: fill 100ms ease-out;
 }
 
 svg:hover {
@@ -411,7 +417,7 @@ svg:hover {
 
 svg.active {
   fill: black;
-  transition: fill 300ms ease-in-out;
+  transition: fill 100ms ease-in-out;
 }
 
 /* Some point to mention:
