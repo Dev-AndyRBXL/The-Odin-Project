@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+body {
+  display: flex;
+  justify-content: start;
+  flex-direction: row-reverse;
+  height: 100vh;
+}
+
+main {
+  background-color: rgb(0, 0, 0, 0.075);
+  display: flex;
+  width: 100%;
+}
+
+.main-content {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.main-content-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.book-card {
+  background-color: #0f2537;
+  border-radius: 16px;
+  box-shadow: 2px 2px 5px #000000ab;
+  height: min-content;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease;
+}
+
+.book-cover {
+  background-color: rgba(71, 71, 71, 0.1);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 8px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.book-cover.no-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-cover:hover {
+  cursor: pointer;
+}
+
+.book-cover > label img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: fill;
+}
+
+.book-info {
+  padding: 16px;
+}
+
+.book-info-title {
+  font-size: 1rem;
+  white-space: nowrap;
+  margin-bottom: 8px;
+}
+
+.book-info-author {
+  color: #cecece;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
+.book-actions {
+  gap: 8px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.book-actions button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-actions button:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+  width: 24px;
+  height: 24px;
+  transition: 100ms;
+}
+
+.book-actions button > svg {
+  fill: rgb(238, 238, 238);
+  width: 11px;
+  height: auto;
+}
+
+nav {
+  box-shadow: -2px 0px 15px #0000003d;
+}
+
+.nav-content {
+  background-color: #f8f8f8;
+  height: 100vh;
+  padding: calc(16px / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.nav-content-hotbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: calc(16px * 1.5);
+}
+
+#addBookBtn {
+  background-color: rgb(35, 130, 255);
+  transition: 100ms ease-out;
+}
+
+#addBookBtn:hover {
+  background-color: rgb(14, 97, 204);
+  transform: scale(1.1);
+  transition: 200ms ease-out;
+}
+
+
+#image {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+label[for="image"] {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  background-color: transparent;
+  width: calc(16px * 3);
+  height: calc(16px * 3);
+  border: none;
+  border-radius: 50%;
+  transition: background-color 200ms;
+}
+
+button:hover {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+  transition: background-color 200ms ease-out;
+}
+
+button:hover > svg {
+  transform: scale(1.05);
+  transition: transform 200ms ease-out;
+}
+
+svg {
+  fill: #000;
+  width: 28px;
+  height: 28px;
+  transition: transform 150ms ease-out;
+}
+
+svg::before {
+  font-weight: 900;
+}
+
+img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}

@@ -3,79 +3,146 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Project Showcase</title>
     <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
       body {
         background-color: whitesmoke;
         display: flex;
         flex-direction: column;
+        padding: 20px;
+        font-family: Arial, sans-serif;
       }
 
-      span {
-        font-weight: bold;
-      }
-
-      span::after {
-        content: ":";
+      h2 {
+        margin-top: 20px;
+        font-size: 1.5em;
       }
 
       ul,
       ol {
         display: flex;
-        justify-content: start;
-        align-items: start;
         flex-direction: column;
-        gap: calc(1em / 2);
+        gap: 0.5em;
+        margin-left: 20px;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #007acc;
+        position: relative;
+        padding: 5px;
+        border-radius: 3px;
+        transition: background-color 200ms;
+      }
+
+      a:hover {
+        background-color: #e3f2fd;
+      }
+
+      iframe {
+        animation: fadeIn 400ms ease-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
     </style>
   </head>
   <body>
-    <span>Foundationals</span>
+    <!-- README -->
+    <!--
+    You will create a beautiful landing page here soon in which
+    you will showcase all of your projects in a neat manner ;)
+
+    DON'T FORGET! :)
+  -->
+
+    <h2>Foundationals</h2>
     <ul>
-      <a href="./The Odin Project/Foundationals/Projects/odin-recipes/"
-        >Odin recipes</a
-      >
-      <a href="./The Odin Project/Foundationals/Projects/Landing Page/"
-        >Landing page</a
-      >
-      <a href="./The Odin Project/Foundationals/Projects/Etch-a-Sketch/"
-        >Etch-a-Sketch</a
-      >
-      <a href="./The Odin Project/Foundationals/Projects/Rock Paper Scissors/"
-        >Rock Paper Scissors</a
-      >
-      <a href="./The Odin Project/Foundationals/Projects/Calculator/"
-        >Calculator</a
-      >
+      <li>
+        <a href="./The Odin Project/Foundationals/Materials/">Materials</a>
+      </li>
+      <li>
+        <a href="./The Odin Project/Foundationals/Projects/odin-recipes/"
+          >Odin recipes</a
+        >
+      </li>
+      <li>
+        <a href="./The Odin Project/Foundationals/Projects/Landing Page/"
+          >Landing page</a
+        >
+      </li>
+      <li>
+        <a href="./The Odin Project/Foundationals/Projects/Etch-a-Sketch/"
+          >Etch-a-Sketch</a
+        >
+      </li>
+      <li>
+        <a href="./The Odin Project/Foundationals/Projects/Rock Paper Scissors/"
+          >Rock Paper Scissors</a
+        >
+      </li>
+      <li>
+        <a href="./The Odin Project/Foundationals/Projects/Calculator/"
+          >Calculator</a
+        >
+      </li>
     </ul>
-    <span>JavaScript Path</span>
-    <ol>
-      <span>Intermediate HTML and CSS course</span>
-      <ul>
+
+    <h2>JavaScript Path</h2>
+    <h3>Intermediate HTML and CSS Course</h3>
+    <ul>
+      <li>
+        <a
+          href="./The Odin Project/Full Stack JavaScript/Intermediate HTML and CSS Course/Materials/"
+          >Materials</a
+        >
+      </li>
+      <li>
         <a
           href="./The Odin Project/Full Stack JavaScript/Intermediate HTML and CSS Course/Projects/Sign-up Form/"
           >Sign-up Form</a
         >
+      </li>
+      <li>
         <a
           href="./The Odin Project/Full Stack JavaScript/Intermediate HTML and CSS Course/Projects/Admin Dashboard/"
-          >Admin dashboard</a
+          >Admin Dashboard</a
         >
-      </ul>
-    </ol>
+      </li>
+    </ul>
+    <h3>JavaScript Course</h3>
+    <ul>
+      <li><a href="./The Odin Project/Full Stack JavaScript/JavaScript Course/Materials/">Materials</a></li>
+      <li><a href="./The Odin Project/Full Stack JavaScript/JavaScript Course/Projects/"></a></li>
+    </ul>
+
     <script>
       document.querySelectorAll("a").forEach((element) => {
         let iframe;
 
-        element.addEventListener("mouseover", () => {
+        element.addEventListener("mouseenter", () => {
           if (!iframe) {
             iframe = document.createElement("iframe");
             iframe.src = element.href;
             iframe.style.width = "300px";
             iframe.style.height = "200px";
             iframe.style.border = "none";
-            iframe.style.borderRadius = "10px";
-            iframe.style;
+            iframe.style.borderRadius = "5px";
             iframe.style.position = "absolute";
+            iframe.style.marginTop = "10px";
+            iframe.style.left = "0";
+            iframe.style.zIndex = "10";
             element.appendChild(iframe);
           }
         });
