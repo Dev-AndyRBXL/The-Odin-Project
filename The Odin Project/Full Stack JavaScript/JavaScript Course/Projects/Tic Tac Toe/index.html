@@ -3,12 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./index.js"></script>
+    <title>Tic-Tac-Toe</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        gap: 5px;
+        margin: 20px auto;
+        width: 310px;
+      }
+      .cell {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #333;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .cell.taken {
+        cursor: not-allowed;
+      }
+      .message {
+        margin-top: 20px;
+        font-size: 1.5rem;
+      }
+      .restart {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <!-- Make it available in here! -->
-     <h2>Welcome to Tic-Tac-Toe</h2>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="board" id="board"></div>
+    <div class="message" id="message"></div>
+    <button class="restart" id="restart">Restart Game</button>
+
+    <script src="./index.js"></script>
   </body>
 </html>

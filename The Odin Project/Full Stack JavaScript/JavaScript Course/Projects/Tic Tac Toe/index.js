@@ -1,3 +1,4 @@
+/*
 // Utility function(s)
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -114,3 +115,99 @@ function playGame() {
 
   console.log("Game Over! Type 'playGame()' to play again.");
 }
+*/
+
+const boardElement = document.getElementById("board");
+const messageElement = document.getElementById("message");
+const restartButton = document.getElementById("restart");
+
+const game = (function () {
+  let board = Array(9).fill(null);
+  let currentPlayer = "X";
+  let gameActive = true;
+
+  const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8], // Rows
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8], // Columns
+    [0, 4, 8],
+    [2, 4, 6], // Diagonals
+  ];
+
+  function createBoard() {
+    boardElement.innerHTML = ""; // Clear previous board
+    board.forEach((cell, index) => {
+      const cellElement = document.createElement("div");
+      cellElement.classList.add("cell");
+      if (cell) {
+        cellElement.textContent = cell;
+        cellElement.classList.add("taken");
+      }
+      cellElement.addEventListener("click", () => handleMove(index), {
+        once: true,
+      });
+      boardElement.appendChild(cellElement);
+    });
+  }
+
+  function handleMove(index) {
+    if (!gameActive || board[index]) return;
+
+    board[index] = currentPlayer;
+    if (checkWinner(currentPlayer)) {
+      messageElement.textContent = `${currentPlayer} wins! 🎉`;
+      gameActive = false;
+    } else if (board.every((cell) => cell)) {
+      messageElement.textContent = `It's a draw! 🤝`;
+      gameActive = false;
+    } else {
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+      messageElement.textContent = `It's ${currentPlayer}'s turn.`;
+    }
+    createBoard();
+  }
+
+  function checkWinner(player) {
+    return winningCombinations.some((combination) =>
+      combination.every((index) => board[index] === player)
+    );
+  }
+
+  function restartGame() {
+    board = Array(9).fill(null);
+    currentPlayer = "X";
+    gameActive = true;
+    messageElement.textContent = `It's ${currentPlayer}'s turn.`;
+    createBoard();
+  }
+
+  return {
+    createBoard,
+    restartGame,
+  };
+})();
+
+restartButton.addEventListener("click", game.restartGame);
+
+// Initial Setup
+game.createBoard();
+messageElement.textContent = `It's X's turn.`;
+
+let arr = [
+  { text: "Hey", age: 14, price: 14 },
+  { text: "He", age: 13, price: 14 },
+  { text: "Hy", age: 12, price: 11 },
+  { text: "ey", age: 14, price: 13 },
+  { text: "He", age: 16, price: 14 },
+];
+
+arr.sort((a, b) => {
+  if (a.age === b.age) return 0;
+  else if (a.age < b.age) return 1;
+  else return -1;
+});
+
+console.log(arr);
