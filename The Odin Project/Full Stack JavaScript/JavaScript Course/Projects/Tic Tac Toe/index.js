@@ -195,19 +195,3 @@ restartButton.addEventListener("click", game.restartGame);
 // Initial Setup
 game.createBoard();
 messageElement.textContent = `It's X's turn.`;
-
-let arr = [
-  { text: "Hey", age: 14, price: 14 },
-  { text: "He", age: 13, price: 14 },
-  { text: "Hy", age: 12, price: 11 },
-  { text: "ey", age: 14, price: 13 },
-  { text: "He", age: 16, price: 14 },
-];
-
-arr.sort((a, b) => {
-  if (a.age === b.age) return 0;
-  else if (a.age < b.age) return 1;
-  else return -1;
-});
-
-console.log(arr);
