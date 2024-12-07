@@ -1,3 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-background-color: rgb(9, 12, 29);
+  --secondary-background-color: rgb(23, 27, 54);
+  --main-text-color: white;
+  --secondary-text-color: black;
+  --main-color: rgb(233, 233, 233);
+}
+
+html,
 body {
-    background-color: black;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  background-color: var(--secondary-background-color);
+  color: var(--main-text-color);
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+header > #content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px;
+}
+
+#main-nav {
+  gap: 0;
+}
+
+#main-nav button {
+  background-color: var(--main-color);
+  color: var(--secondary-text-color);
+  border: solid;
+  border-color: var(--main-background-color);
+  border-radius: 5px;
+  width: 75px;
+  height: 50px;
+}
+
+main {
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  width: 100%;
+  height: 100%;
+}
+
+.main-background {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
 }
