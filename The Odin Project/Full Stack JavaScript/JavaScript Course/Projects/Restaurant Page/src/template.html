@@ -8,21 +8,96 @@
   <body>
     <header>
       <div id="content">
-        <!-- Homepage -->
-        <nav id="main-nav">
+        <nav id="header-nav" role="navigation" aria-label="Main navigation">
           <button>Home</button>
           <button>Menu</button>
           <button>About</button>
+          <button>Contact</button>
         </nav>
         <h1>My Restaurant</h1>
+        <p>Your favorite spot for delicious meals across North America!</p>
       </div>
     </header>
     <main>
-      <img
-        src="./assets/images/background.jpg"
-        alt="Background Image"
-        class="main-background"
-      />
+      <!-- Home Section -->
+      <section class="home-section">
+        <h2>Welcome to My Restaurant</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+          quibusdam ipsam saepe, perferendis iusto rerum ex corporis repudiandae
+          assumenda tempora autem quia ipsa consectetur recusandae accusamus
+          quidem possimus, esse sint!
+        </p>
+        <img
+          src="https://via.placeholder.com/600x300"
+          alt="A delicious meal served at our restaurant"
+          style="max-width: 100%; height: auto; margin: 1rem 0"
+        />
+        <fieldset role="group" aria-labelledby="country-list">
+          <legend id="country-list">Our Locations</legend>
+          <ul>
+            <li
+              >Mexico -
+              <span>Serving tacos and authentic Mexican cuisine</span></li
+            >
+            <li>USA - <span>Classic burgers, steaks, and more</span></li>
+            <li>Canada - <span>Fresh seafood and poutine specialties</span></li>
+          </ul>
+        </fieldset>
+      </section>
+
+      <!-- Menu Section -->
+      <section>
+        <h2>Our Special Menu</h2>
+        <p>Explore some of our signature dishes:</p>
+        <ul>
+          <li
+            ><strong>Tacos al Pastor:</strong> Traditional Mexican tacos with
+            marinated pork</li
+          >
+          <li
+            ><strong>BBQ Bacon Burger:</strong> Juicy burger with crispy bacon
+            and BBQ sauce</li
+          >
+          <li
+            ><strong>Lobster Poutine:</strong> A Canadian twist with fresh
+            lobster meat</li
+          >
+        </ul>
+      </section>
+
+      <!-- About Section -->
+      <section>
+        <h2>About Us</h2>
+        <p>
+          At My Restaurant, we are passionate about delivering exceptional
+          dining experiences. From the spicy flavors of Mexico to the hearty
+          meals of the USA and the fresh tastes of Canada, we celebrate North
+          America's diverse culinary culture.
+        </p>
+      </section>
     </main>
+
+    <footer>
+      <p>&copy; 2024 My Restaurant. All Rights Reserved.</p>
+      <p>
+        Follow us on
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          style="color: #4da8da"
+          >Facebook</a
+        >,
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          style="color: #f37a2e"
+          >Instagram</a
+        >, and
+        <a href="https://www.twitter.com" target="_blank" style="color: #1da1f2"
+          >Twitter</a
+        >.
+      </p>
+    </footer>
   </body>
 </html>
