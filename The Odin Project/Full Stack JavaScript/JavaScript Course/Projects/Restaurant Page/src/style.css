@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 header {
   background-color: var(--secondary-background-color);
   color: var(--main-text-color);
@@ -50,6 +51,10 @@ header > #content {
   box-shadow: 3px 3px 15px var(--shadow-color);
   width: calc(75px + 0.25vw);
   height: calc(50px + 0.25vh);
+}
+
+#header-nav button.active {
+  color: var(--shadow-color);
 }
 
 main {
@@ -88,10 +93,7 @@ main {
 
 footer {
   background-color: var(--secondary-background-color);
-  border-radius: 25px;
-  box-shadow: 5px 5px 15px var(--shadow-color);
   padding: 25px;
-  margin: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,10 +102,6 @@ footer {
 button {
   cursor: pointer;
   transition: color 200ms ease-out;
-}
-
-button.active {
-  color: blue;
 }
 
 ul {

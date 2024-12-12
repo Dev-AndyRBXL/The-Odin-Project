@@ -1,9 +1,8 @@
 # Requirement(s):
 - HTML elements should not be hardcoded into the .html file
+- Just display the navs according to the button pressed. 
 
 # To-do:
-- Add the main content onto the main background !
-- Add functionality to the buttons !! 
 - Fix styles
 
 ## File path: 

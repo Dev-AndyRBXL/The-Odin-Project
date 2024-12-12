@@ -1,12 +1,13 @@
 import './style.css';
+import { toggleSect } from './assets/modules/toggleSect.js';
 
 const content = document.getElementById('content');
 content.innerHTML = `
         <nav id="header-nav" role="navigation" aria-label="Main navigation">
-          <button>Home</button>
-          <button>Menu</button>
-          <button>About</button>
-          <button>Contact</button>
+          <button data-section-class="home" class="active">Home</button>
+          <button data-section-class="menu">Menu</button>
+          <button data-section-class="about">About</button>
+          <button data-section-class="contact">Contact</button>
         </nav>
         <h1>My Restaurant</h1>
         <p>Your favorite spot for delicious meals across North America!</p>
@@ -14,8 +15,6 @@ content.innerHTML = `
 
 const nav = document.getElementById('header-nav');
 const buttons = nav.querySelectorAll('button');
-buttons.forEach((button) => {
-  button.addEventListener('click', (ev) => {
-    button.className = button.className === 'active' ? '' : 'active';
-  });
-});
+toggleSect(buttons);
+
+const main = document.querySelector('main');
