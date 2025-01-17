@@ -9,7 +9,7 @@
   --secondary-background-color: rgb(240, 240, 240);
   --main-text-color: rgb(33, 37, 41);
   --secondary-text-color: rgb(255, 255, 255);
-  --main-color: rgb(200, 200, 200);
+  --main-color: rgb(226, 226, 226);
   --shadow-color: rgb(110, 110, 110);
 }
 
@@ -60,7 +60,7 @@ header > #content {
 main {
   background-color: var(--main-background-color);
   color: var(--main-text-color);
-  padding: 15px;
+  padding: 30px;
   gap: 10%;
   width: 100%;
   height: 100%;
@@ -76,7 +76,6 @@ main {
 .main section {
   background-color: var(--main-color);
   color: var(--secondary-text-color);
-  border-radius: 10px;
   padding: 10%;
   gap: 15%;
   width: 100%;
@@ -86,7 +85,10 @@ main {
 }
 
 .home-section {
+  background-color: var(--main-color);
+  border-radius: 15px;
   margin: 2rem auto;
+  padding: 10%;
   text-align: center;
   line-height: 1.6;
 }
