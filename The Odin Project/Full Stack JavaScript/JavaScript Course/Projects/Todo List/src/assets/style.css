@@ -32,7 +32,7 @@ header ul {
 }
 
 header ul li a {
-  color: var(--primarycolor);
+  color: black;
   text-decoration: none;
 }
 
@@ -68,6 +68,7 @@ aside {
 }
 
 .user-profile {
+  color: black;
   gap: var(--commonvalue);
   display: flex;
   align-items: center;
