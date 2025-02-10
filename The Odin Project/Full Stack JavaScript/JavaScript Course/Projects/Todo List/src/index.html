@@ -9,59 +9,73 @@
     ></script>
     <title>MyTodo</title>
     <script src="./index.js" defer></script>
+    <script src="./assets/scripts/ui.js" defer></script>
+    <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <header>
-      <div>
-        <h1>MyTodo</h1>
-      </div>
-      <div>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </header>
     <main>
-        <div>
+      <div id="today">
+        <h2>Today</h2>
+        
+        <section id="overdue-main">
+          <header>
+            <i class="fa fa-caret-down" aria-hidden="false"></i>
+            <h1>Overdue</h1>
+          </header>
+        </section>
 
-          
-        </div>
+        <section id="today-main">
+          <header>
+            <i class="fa fa-caret-down" aria-hidden="false"></i>
+            <h1>Today</h1>
+          </header>
+        </section>
+      </div>
     </main>
+
     <aside>
       <div>
-        <i class="fa fa-bars" aria-hidden="false"></i></div>
-      <section class="user-profile">
+        <i class="fa fa-bars" aria-hidden="false"></i>
+      </div>
+
+      <div class="user-profile">
         <figure>
           <img
             id="user-profile-picture"
             src="./assets/images/pfp.png"
-            alt="pfp?"
+            alt="Profile Picture"
           />
         </figure>
         <div class="user-info">
-          <h4>Dev_Andy</h4>
+          <h2>Dev_Andy</h2>
         </div>
-      </section>
-      <section id="user-projects">
-        <div id="create-project">
+      </div>
+
+      <div class="container">
+        <section id="today">
           <button>
-            <div>
-              <i class="fa-regular fa-note-sticky"></i>
-            </div>
-            <p>New Project</p>
+            <h3>Today</h3>
           </button>
-        </div>
-        <div class="project">
-          <button><h4>My Project 1</h4></button>
-        </div>
-        <div class="project">
-          <button><h4>My Project 2</h4></button>
-        </div>
-      </section>
+        </section>
+
+        <section id="user-projects">
+          <h3>My Projects</h5>
+          <div id="create-project">
+            <button style="margin-left: 8px;">
+              <i class="fa-regular fa-note-sticky"></i>
+              <p>New Project</p>
+            </button>
+          </div>
+
+          <div class="project">
+            <button><h4>My Project 1</h4></button>
+          </div>
+
+          <div class="project">
+            <button><h4>My Project 2</h4></button>
+          </div>
+        </section>
+      </div>
     </aside>
-    
-    <link rel="stylesheet" href="assets/style.css" />
   </body>
 </html>

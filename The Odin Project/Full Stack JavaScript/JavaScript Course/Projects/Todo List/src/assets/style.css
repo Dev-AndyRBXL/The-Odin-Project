@@ -5,8 +5,9 @@
 }
 
 :root {
-  --primarycolor: #153866;
+  --primarycolor: #07182c;
   --secondarycolor: #f5f5f5;
+  --main-color: rgb(253, 253, 253);
   --commonvalue: 4px;
 }
 
@@ -14,31 +15,40 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif, system-ui;
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-areas: 'sidebar main';
+  grid-template-columns: 300px 1fr;
 }
 
-header {
+body > header {
   background-color: var(--secondarycolor);
   color: var(--primarycolor);
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header ul {
-  list-style: none;
-  gap: 8px;
-  display: flex;
-}
-
-header ul li a {
-  color: black;
-  text-decoration: none;
-}
-
 main {
-  background-color: var(--secondarycolor);
+  background-color: var(--main-color);
   color: var(--primarycolor);
+  width: 100%;
+  height: 100%;
+  padding: 4rem 3rem;
+  grid-area: main;
+}
+
+main header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+main header h1 {
+  font-size: 11px;
+  border-bottom: solid 1px #e2e2e2be;
+  padding: 16px 0;
+  width: 100%;
 }
 
 aside {
@@ -47,28 +57,25 @@ aside {
   width: 300px;
   height: 100vh;
   padding: 16px;
-  position: absolute;
-  top: 0;
-  left: 0;
   box-shadow: -15px 2px 30px rgba(0, 0, 0, 0.5);
+  grid-area: sidebar;
+  transition: 0.15s ease;
+}
+
+aside > div {
+  transition: 0.15s ease;
 }
 
 .fa-bars {
-  border-radius: 50%;
-  padding: 8px;
   position: fixed;
   left: 305px;
-  transition: 0.1s;
-}
-
-.fa-bars:hover {
-  background-color: var(--secondarycolor);
-  cursor: pointer;
-  filter: brightness(95%);
+  transition: 0.15s ease;
 }
 
 .user-profile {
   color: black;
+  border-bottom: 1px #ddd solid;
+  padding: 6px;
   gap: var(--commonvalue);
   display: flex;
   align-items: center;
@@ -80,10 +87,39 @@ aside {
   height: 32px;
 }
 
-#user-projects {
+.user-info {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+aside .container {
   margin-top: 32px;
+  padding: var(--commonvalue);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#today button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  transition: 0.15s;
+}
+
+#today button:hover {
+  background-color: var(--secondarycolor);
+  filter: brightness(98%);
+}
+
+#user-projects {
   display: grid;
   gap: 8px;
+  transition: 0.15s;
 }
 
 #create-project {
@@ -93,9 +129,17 @@ aside {
 #create-project button {
   background-color: transparent;
   border: none;
-  padding: var(--commonvalue);
+  border-radius: 5px;
+  width: 75%;
+  height: 2rem;
   gap: var(--commonvalue);
   display: flex;
+  align-items: center;
+}
+
+#create-project button:hover {
+  background-color: var(--secondarycolor);
+  filter: brightness(98%);
 }
 
 .project button {
@@ -105,16 +149,33 @@ aside {
   padding: var(--commonvalue);
   width: 100%;
   height: 100%;
-  transition: 0.3s ease;
+  transition: 0.1s ease;
 }
 
 .project button:hover {
   transform: translateY(-2px);
 }
 
-button:hover {
+.fa {
+  border-radius: 5px;
+  padding: 8px;
+  transition: 0.15s;
+}
+
+.fa:hover {
+  background-color: var(--secondarycolor);
   cursor: pointer;
-  filter: brightness(90%);
+  filter: brightness(95%);
+}
+
+button {
+  padding: var(--commonvalue);
+}
+
+button:hover {
+  background-color: var(--secondarycolor);
+  cursor: pointer;
+  filter: brightness(98.5%);
 }
 
 button:active {

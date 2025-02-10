@@ -30,3 +30,5 @@ The main content will be the header & the to-do itself.
 ### Others
 
 - save the user's data.
+
+-- "The Odin Project"/"Full Stack JavaScript"/"JavaScript Course"/Projects/"Todo List"/
