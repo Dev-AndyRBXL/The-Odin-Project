@@ -15,9 +15,8 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif, system-ui;
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template-areas: 'sidebar main';
-  grid-template-columns: 300px 1fr;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 body > header {
@@ -54,7 +53,9 @@ main header h1 {
 aside {
   background-color: var(--secondarycolor);
   color: var(--primarycolor);
-  width: 300px;
+  width: 20vw;
+  min-width: 200px;
+  max-width: 325px;
   height: 100vh;
   padding: 16px;
   box-shadow: -15px 2px 30px rgba(0, 0, 0, 0.5);
@@ -79,17 +80,20 @@ aside > div {
   gap: var(--commonvalue);
   display: flex;
   align-items: center;
+  transition: 0.15s ease;
 }
 
 #user-profile-picture {
   border-radius: 50%;
   width: 32px;
   height: 32px;
+  transition: 0.15s ease;
 }
 
 .user-info {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
+  transition: 0.15s ease;
 }
 
 aside .container {
@@ -98,6 +102,7 @@ aside .container {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: 0.15s ease;
 }
 
 #today button {
@@ -108,7 +113,7 @@ aside .container {
   height: 2rem;
   display: flex;
   align-items: center;
-  transition: 0.15s;
+  transition: 0.15s ease;
 }
 
 #today button:hover {
@@ -119,11 +124,12 @@ aside .container {
 #user-projects {
   display: grid;
   gap: 8px;
-  transition: 0.15s;
+  transition: 0.15s ease;
 }
 
 #create-project {
   margin-bottom: 16px;
+  transition: 0.15s ease;
 }
 
 #create-project button {
@@ -135,6 +141,7 @@ aside .container {
   gap: var(--commonvalue);
   display: flex;
   align-items: center;
+  transition: 0.15s ease;
 }
 
 #create-project button:hover {
@@ -149,7 +156,7 @@ aside .container {
   padding: var(--commonvalue);
   width: 100%;
   height: 100%;
-  transition: 0.1s ease;
+  transition: 0.15s ease;
 }
 
 .project button:hover {
