@@ -11,12 +11,13 @@
   --commonvalue: 4px;
 }
 
+html,
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif, system-ui;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: row-reverse;
+  height: 100vh;
+  width: 100vw;
 }
 
 body > header {
@@ -34,20 +35,44 @@ main {
   width: 100%;
   height: 100%;
   padding: 4rem 3rem;
-  grid-area: main;
 }
 
-main header {
+main:first-child header {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-main header h1 {
+main:first-child header h1 {
   font-size: 11px;
   border-bottom: solid 1px #e2e2e2be;
   padding: 16px 0;
   width: 100%;
+}
+
+.overdue-main,
+.todo-main {
+  max-height: 100%;
+  display: flex;
+  gap: var(--commonvalue);
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+main:first-child .item {
+  margin-left: 34px;
+  padding: var(--commonvalue);
+}
+
+main:first-child .item:hover {
+  background-color: #0000000e;
+  cursor: pointer;
+}
+
+main:first-child .item:active {
+  background-color: #0000001a;
 }
 
 aside {
@@ -59,7 +84,6 @@ aside {
   height: 100vh;
   padding: 16px;
   box-shadow: -15px 2px 30px rgba(0, 0, 0, 0.5);
-  grid-area: sidebar;
   transition: 0.15s ease;
 }
 
@@ -83,7 +107,7 @@ aside > div {
   transition: 0.15s ease;
 }
 
-#user-profile-picture {
+#userProfilePicture {
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -105,34 +129,11 @@ aside .container {
   transition: 0.15s ease;
 }
 
-#today button {
-  background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  width: 75%;
-  height: 2rem;
-  display: flex;
-  align-items: center;
+#createTask {
   transition: 0.15s ease;
 }
 
-#today button:hover {
-  background-color: var(--secondarycolor);
-  filter: brightness(98%);
-}
-
-#user-projects {
-  display: grid;
-  gap: 8px;
-  transition: 0.15s ease;
-}
-
-#create-project {
-  margin-bottom: 16px;
-  transition: 0.15s ease;
-}
-
-#create-project button {
+#createTask button {
   background-color: transparent;
   border: none;
   border-radius: 5px;
@@ -144,9 +145,84 @@ aside .container {
   transition: 0.15s ease;
 }
 
-#create-project button:hover {
+#createTask button:hover {
   background-color: var(--secondarycolor);
   filter: brightness(98%);
+}
+
+#todo button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  transition: 0.15s ease;
+}
+
+#todo button:hover {
+  background-color: var(--secondarycolor);
+  filter: brightness(98%);
+}
+
+#notes button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  transition: 0.15s ease;
+}
+
+#notes button:hover {
+  background-color: var(--secondarycolor);
+  filter: brightness(98%);
+}
+
+#userProjects {
+  display: grid;
+  gap: 8px;
+  transition: 0.15s ease;
+}
+
+#createProject {
+  margin-left: 8px;
+  margin-bottom: 16px;
+  transition: 0.15s ease;
+}
+
+#createProject button {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  height: 2rem;
+  gap: var(--commonvalue);
+  display: flex;
+  align-items: center;
+  transition: 0.15s ease;
+}
+
+#createProject button:hover {
+  background-color: var(--secondarycolor);
+  filter: brightness(98%);
+}
+
+#projectForm > input#name {
+  background-color: inherit;
+  text-align: center;
+  border: none;
+  border-bottom: solid 1px #e2e2e2be;
+  padding: var(--commonvalue);
+}
+
+#projectForm > input#name:focus {
+  background-color: var(--secondarycolor);
+  outline: none;
+  filter: brightness(97%);
 }
 
 .project button {
@@ -163,6 +239,42 @@ aside .container {
   transform: translateY(-2px);
 }
 
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#popup {
+  background-color: var(--secondarycolor);
+  border: solid #0000001a;
+  border-radius: 16px;
+  padding: 32px 48px;
+}
+#popup > form {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+#popup input[name='title'] {
+  font-weight: bold;
+}
+
+#popup input {
+  padding: 2px;
+}
+
+#popup button {
+  border: solid 1px;
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
 .fa {
   border-radius: 5px;
   padding: 8px;
@@ -170,7 +282,7 @@ aside .container {
 }
 
 .fa:hover {
-  background-color: var(--secondarycolor);
+  background-color: #0000001a;
   cursor: pointer;
   filter: brightness(95%);
 }

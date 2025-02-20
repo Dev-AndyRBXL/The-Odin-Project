@@ -13,35 +13,37 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <main>
-      <div id="today">
-        <h2>Today</h2>
-        
-        <section id="overdue-main">
+    <main class="main" id="main">
+      <div class="container">
+        <h2>Todo</h2>
+
+        <section class="overdue-main">
           <header>
-            <i class="fa fa-caret-down" aria-hidden="false"></i>
+            <i class="fa fa-caret-right"></i>
             <h1>Overdue</h1>
           </header>
+          <div id="overdueContainer" class="overdue-container"></div>
         </section>
 
-        <section id="today-main">
+        <section class="todo-main">
           <header>
-            <i class="fa fa-caret-down" aria-hidden="false"></i>
-            <h1>Today</h1>
+            <i class="fa fa-caret-right"></i>
+            <h1>Todo</h1>
           </header>
+          <div class="todo-container" id="todoContainer"></div>
         </section>
       </div>
     </main>
 
-    <aside>
+    <aside class="aside" id="aside">
       <div>
-        <i class="fa fa-bars" aria-hidden="false"></i>
+        <i class="fa fa-bars"></i>
       </div>
 
       <div class="user-profile">
         <figure>
           <img
-            id="user-profile-picture"
+            id="userProfilePicture"
             src="./assets/images/pfp.png"
             alt="Profile Picture"
           />
@@ -52,30 +54,98 @@
       </div>
 
       <div class="container">
-        <section id="today">
-          <button>
-            <h3>Today</h3>
-          </button>
-        </section>
-
-        <section id="user-projects">
-          <h3>My Projects</h5>
-          <div id="create-project">
-            <button style="margin-left: 8px;">
-              <i class="fa-regular fa-note-sticky"></i>
-              <p>New Project</p>
+        <div id="topMenu">
+          <div id="createTask">
+            <button>
+              <i class="fa-regular fa-plus"></i>
+              <p>New Task</p>
             </button>
           </div>
 
-          <div class="project">
-            <button><h4>My Project 1</h4></button>
-          </div>
+          <section id="todo">
+            <button>
+              <h3>Todo</h3>
+            </button>
+          </section>
+          <section id="notes">
+            <button>
+              <h3>Notes</h3>
+            </button>
+          </section>
+        </div>
 
-          <div class="project">
-            <button><h4>My Project 2</h4></button>
-          </div>
-        </section>
+        <div id="bottomMenu"
+          ><section id="userProjects">
+            <h3>My Projects</h3>
+            <div id="createProject">
+              <button>
+                <i class="fa-regular fa-note-sticky"></i>
+                <p>New Project</p>
+              </button>
+            </div>
+
+            <div class="project">
+              <button><h4>My Project 1</h4></button>
+            </div>
+
+            <form
+              class="form"
+              id="projectForm"
+              enctype="multipart/form-data"
+              method="post"
+            >
+              <input type="text" name="name" id="name" placeholder="Name" />
+              <input type="submit" hidden />
+            </form>
+          </section>
+        </div>
       </div>
     </aside>
+
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup" id="popup">
+        <form
+          class="form"
+          id="popupForm"
+          enctype="multipart/form-data"
+          method="post"
+        >
+          <legend>New Task</legend>
+          <p>
+            <label for="name"></label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Title"
+              required
+            />
+          </p>
+          <p>
+            <label for="desc"></label>
+            <input
+              type="text"
+              name="desc"
+              id="desc"
+              placeholder="Description"
+            />
+          </p>
+          <p>
+            <label for="dueDate"></label>
+            <input type="datetime-local" name="dueDate" id="dueDate" />
+          </p>
+          <p>
+            <select name="priority" id="priority">
+              <option value="1">P1 - Highest</option>
+              <option value="2">P2 - High</option>
+              <option value="3">P3 - Medium</option>
+              <option value="4" selected>P4 - Low</option>
+            </select>
+          </p>
+
+          <button type="submit" id="submit"> Add Task </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

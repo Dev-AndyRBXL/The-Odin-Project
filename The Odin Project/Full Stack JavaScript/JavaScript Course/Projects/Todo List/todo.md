@@ -1,3 +1,7 @@
+--- Overview of the project 
+  Please follow them
+---
+
 - What we'll we do?
   We'll first create the site's layout to posteriorly add functionality and, lastly, we'll store user's data locally.
 
@@ -32,3 +36,12 @@ The main content will be the header & the to-do itself.
 - save the user's data.
 
 -- "The Odin Project"/"Full Stack JavaScript"/"JavaScript Course"/Projects/"Todo List"/
+
+
+Todo:
+---
+
+- Add a checkmark button next to (left side) the tasks
+- Make a pop for each task that display their description
+  (when clicked)
+- "Notes" section pending...
