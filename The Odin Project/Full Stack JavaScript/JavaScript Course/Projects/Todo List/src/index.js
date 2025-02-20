@@ -76,22 +76,22 @@ const todo = (function () {
     taskArray.forEach((task, index) => {
       const taskDate = new Date(task.dueDate);
 
-      const createDiv = () => document.createElement('div'); // lmao
+      const newDiv = () => document.createElement('div'); // lmao
 
-      const div = createDiv();
+      const div = newDiv();
       div.classList.add('item');
       div.dataset.itemIndex = index;
 
-      const top = createDiv();
+      const top = newDiv();
       top.classList.add('top');
-      const topContainer = createDiv();
+      const topContainer = newDiv();
       topContainer.classList.add('top-container');
-      const checkbox = createDiv();
+      const checkbox = newDiv();
       checkbox.classList.add('item-checkbox');
-      const title = createDiv();
+      const title = newDiv();
       title.innerText = task.name;
-      title.classList('item-title');
-      const desc = createDiv(); // show in task-info (when the user clicks on the task)
+      title.classList.add('item-title');
+      const desc = newDiv(); // show in task-info (when the user clicks on the task) - PENDING
       desc.innerText = task.desc;
       desc.classList.add('item-description');
 
@@ -99,38 +99,29 @@ const todo = (function () {
       topContainer.appendChild(title);
       top.appendChild(topContainer);
 
-      const bottom = createDiv();
+      const bottom = newDiv();
       bottom.classList.add('bottom');
-      const bottomContainer = createDiv();
+      const bottomContainer = newDiv();
       bottomContainer.classList.add('bottom-container');
+      bottomContainer.style.cssText =
+        'background-color: inherit; border: none;';
+      const el = document.createElement('i');
+      el.innerText = '#';
+      const button = document.createElement('button');
+      const dueDate = newDiv();
+      task.dueDate
+        ? (dueDate.innerText = task.dueDate.split('T').join(' at '))
+        : (dueDate.innerText = 'No due date');
+      const priority = newDiv();
+      priority.innerText = 'Priority:' + task.priority;
+
+      bottomContainer.appendChild(el);
+      bottomContainer.appendChild(button);
+      bottomContainer.appendChild(dueDate);
+      bottom.appendChild(bottomContainer);
 
       div.appendChild(top);
-
-      div.innerHTML = `
-        <div class="top">
-          <div>
-            <div class="task-checkbox"></div>
-            <div class="task-title">${task.name}</div>
-          </div>
-          <div class="task-description">${task.desc}</div>
-        </div>
-        <div class="bottom">
-          <div style="display: flex; gap: 4px">
-            <i>#</i>
-            <button style="background-color: inherit; border: none;"></button>
-          </div>
-          <div>
-            ${
-              task.dueDate
-                ? task.dueDate.split('T').join(' at ')
-                : 'No due date'
-            }
-          </div>
-          <div>
-            Priority: ${task.priority}
-          </div>
-        </div>
-      `;
+      div.appendChild(bottom);
 
       if (!task.dueDate) {
         todoContainer.appendChild(div);
@@ -174,3 +165,17 @@ const todo = (function () {
     form.reset();
   });
 })();
+
+/* PENDING
+ (function () {
+  const form = document.getElementById('projectForm');
+
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+
+    const formData = new FormData(form);
+  })
+})();
+ **/
+
+console.log('a' + 'b');

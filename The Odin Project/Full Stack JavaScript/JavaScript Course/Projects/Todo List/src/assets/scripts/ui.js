@@ -1,4 +1,4 @@
-(function () {
+const main = (function () {
   const container = document.getElementById('main').querySelector('.container');
   const carets = container.querySelectorAll('.fa');
 
@@ -79,29 +79,31 @@
   });
 })();
 
-const popup = document.getElementById('popup');
-const overlay = document.getElementById('popupOverlay');
+const popupForm = function () {
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('popupOverlay');
 
-popup.addEventListener('click', (ev) => {
-  ev.stopPropagation();
-});
-
-document
-  .getElementById('createTask')
-  .querySelector('button')
-  .addEventListener('click', () => {
-    overlay.style.display = 'flex';
+  popup.addEventListener('click', (ev) => {
+    ev.stopPropagation();
   });
 
-overlay.addEventListener('click', () => {
-  overlay.style.display = 'none';
-});
+  document
+    .getElementById('createTask')
+    .querySelector('button')
+    .addEventListener('click', () => {
+      overlay.style.display = 'flex';
+    });
 
-popup.addEventListener('click', (ev) => {
-  ev.stopPropagation();
-});
+  overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+  });
 
-form.addEventListener('submit', (ev) => {
-  ev.preventDefault();
-  overlay.style.display = 'none';
-});
+  popup.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+  });
+
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    overlay.style.display = 'none';
+  });
+};

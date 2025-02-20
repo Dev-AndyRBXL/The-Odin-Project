@@ -11,7 +11,6 @@
   --commonvalue: 4px;
 }
 
-html,
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif, system-ui;
   display: flex;
