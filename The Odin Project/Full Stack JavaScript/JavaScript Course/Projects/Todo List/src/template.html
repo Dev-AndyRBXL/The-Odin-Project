@@ -8,18 +8,15 @@
       crossorigin="anonymous"
     ></script>
     <title>MyTodo</title>
-    <script src="./index.js" defer></script>
-    <script src="./assets/scripts/ui.js" defer></script>
-    <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
     <main class="main" id="main">
-      <div class="container">
+      <div class="main-container">
         <h2>Todo</h2>
 
         <section class="overdue-main">
           <header>
-            <i class="fa fa-caret-right"></i>
+            <i class="fa fa-caret-right" aria-label="Expand Overdue"></i>
             <h1>Overdue</h1>
           </header>
           <div id="overdueContainer" class="overdue-container"></div>
@@ -27,7 +24,7 @@
 
         <section class="todo-main">
           <header>
-            <i class="fa fa-caret-right"></i>
+            <i class="fa fa-caret-right" aria-label="Expand Todo"></i>
             <h1>Todo</h1>
           </header>
           <div class="todo-container" id="todoContainer"></div>
@@ -35,11 +32,11 @@
       </div>
     </main>
 
-    <aside class="aside" id="aside">
-      <div>
-        <i class="fa fa-bars"></i>
-      </div>
+    <div>
+      <i class="fa fa-bars" aria-label="Toggle Menu"></i>
+    </div>
 
+    <aside class="aside" id="aside">
       <div class="user-profile">
         <figure>
           <img
@@ -53,30 +50,26 @@
         </div>
       </div>
 
-      <div class="container">
+      <div class="aside-container">
         <div id="topMenu">
           <div id="createTask">
             <button>
-              <i class="fa-regular fa-plus"></i>
+              <i class="fa-solid fa-plus"></i>
               <p>New Task</p>
             </button>
           </div>
 
           <section id="todo">
-            <button>
-              <h3>Todo</h3>
-            </button>
+            <button><h3>Todo</h3></button>
           </section>
           <section id="notes">
-            <button>
-              <h3>Notes</h3>
-            </button>
+            <button><h3>Notes</h3></button>
           </section>
         </div>
 
-        <div id="bottomMenu"
-          ><section id="userProjects">
-            <h3>My Projects</h3>
+        <div id="bottomMenu">
+          <section class="user-projects" id="userProjects">
+            <h4>My Projects</h4>
             <div id="createProject">
               <button>
                 <i class="fa-regular fa-note-sticky"></i>
@@ -84,18 +77,27 @@
               </button>
             </div>
 
-            <div class="project">
-              <button><h4>My Project 1</h4></button>
+            <div class="user-projects-container" id="userProjectsContainer">
+              <div class="project" id="My-Project-1">
+                <button><h4>My Project 1</h4></button>
+              </div>
             </div>
-
             <form
               class="form"
               id="projectForm"
               enctype="multipart/form-data"
               method="post"
             >
-              <input type="text" name="name" id="name" placeholder="Name" />
-              <input type="submit" hidden />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                minlength="3"
+                maxlength="15"
+                required
+              />
+              <input type="submit" hidden="true" style="display: none" />
             </form>
           </section>
         </div>
@@ -110,40 +112,38 @@
           enctype="multipart/form-data"
           method="post"
         >
-          <legend>New Task</legend>
-          <p>
-            <label for="name"></label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Title"
-              required
-            />
-          </p>
-          <p>
-            <label for="desc"></label>
-            <input
-              type="text"
-              name="desc"
-              id="desc"
-              placeholder="Description"
-            />
-          </p>
-          <p>
-            <label for="dueDate"></label>
-            <input type="datetime-local" name="dueDate" id="dueDate" />
-          </p>
-          <p>
-            <select name="priority" id="priority">
-              <option value="1">P1</option>
-              <option value="2">P2</option>
-              <option value="3">P3</option>
-              <option value="4" selected>P4</option>
-            </select>
-          </p>
-
-          <button type="submit" id="submit"> Add Task </button>
+          <fieldset>
+            <legend>New Task</legend>
+            <p>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Title"
+                required
+              />
+            </p>
+            <p>
+              <input
+                type="text"
+                name="desc"
+                id="desc"
+                placeholder="Description"
+              />
+            </p>
+            <p>
+              <input type="datetime-local" name="dueDate" id="dueDate" />
+            </p>
+            <p>
+              <select name="priority" id="priority">
+                <option value="1">P1</option>
+                <option value="2">P2</option>
+                <option value="3">P3</option>
+                <option value="4" selected>P4</option>
+              </select>
+            </p>
+            <button type="submit" id="submit">Add Task</button>
+          </fieldset>
         </form>
       </div>
     </div>

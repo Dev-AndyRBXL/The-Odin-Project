@@ -1,85 +1,50 @@
 const main = (function () {
-  const container = document.getElementById('main').querySelector('.container');
+  const container = document
+    .getElementById('main')
+    .querySelector('.main-container');
   const carets = container.querySelectorAll('.fa');
 
   carets.forEach((caret) => {
+    const parent = caret.parentElement.parentElement.querySelector('div');
+    parent.style.display = 'none';
     caret.addEventListener('click', () => {
       const isHidden = caret.getAttribute('aria-hidden') === 'true';
 
       if (isHidden) {
         caret.setAttribute('aria-hidden', 'false');
         caret.classList.replace('fa-caret-right', 'fa-caret-down');
+        parent.style.display = 'block';
       } else {
         caret.setAttribute('aria-hidden', 'true');
         caret.classList.replace('fa-caret-down', 'fa-caret-right');
+        parent.style.display = 'none';
       }
     });
   });
 
   const aside = document.querySelector('aside');
-  const div = aside.querySelector('div');
-  const bars = div.querySelector('.fa-bars');
-
-  bars.style.left = '5px';
-
-  aside.style.width = '0';
-  aside.style.minWidth = '0';
-
-  aside.querySelectorAll('*').forEach((el) => {
-    if (el !== div && el !== bars) {
-      el.style.display = 'none';
-      el.setAttribute('aria-hidden', 'true');
-    }
-  });
-
-  setTimeout(updateBarsPosition, 150);
+  const bars = document.querySelector('.fa-bars');
 
   function updateBarsPosition() {
-    bars.style.left = aside.getBoundingClientRect().width + 5 + 'px';
+    bars.style.left = `${aside.offsetWidth + 5}px`;
   }
 
-  updateBarsPosition();
+  function toggleAside() {
+    const isOpen = aside.classList.toggle('open');
 
-  bars.addEventListener('click', () => {
-    if (aside.style.width === '0px' || !aside.style.width) {
-      aside.style.display = 'block';
-      aside.style.width = '20vw';
-      aside.style.maxWidth = '325px';
-      aside.style.minWidth = '200px';
-      aside.style.height = '100vh';
-      aside.style.visibility = 'visible';
+    aside.style.width = isOpen ? 'auto' : '32px';
+    aside.style.display = isOpen ? 'block' : 'none';
 
-      aside.querySelectorAll('*').forEach((el) => {
-        if (el !== div && el !== bars) {
-          el.style.display = '';
-          el.removeAttribute('aria-hidden');
-        }
-      });
+    updateBarsPosition();
+  }
 
-      setTimeout(updateBarsPosition, 150);
-    } else {
-      bars.style.left = '5px';
+  bars.addEventListener('click', toggleAside);
+  window.addEventListener('resize', updateBarsPosition);
 
-      aside.style.width = '0';
-      aside.style.minWidth = '0';
-
-      aside.querySelectorAll('*').forEach((el) => {
-        if (el !== div && el !== bars) {
-          el.style.display = 'none';
-          el.setAttribute('aria-hidden', 'true');
-        }
-      });
-
-      setTimeout(updateBarsPosition, 150);
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    setTimeout(updateBarsPosition, 125);
-  });
+  document.addEventListener('DOMContentLoaded', updateBarsPosition);
 })();
 
-const popupForm = function () {
+(function () {
   const popup = document.getElementById('popup');
   const overlay = document.getElementById('popupOverlay');
 
@@ -101,9 +66,26 @@ const popupForm = function () {
   popup.addEventListener('click', (ev) => {
     ev.stopPropagation();
   });
+})();
 
-  form.addEventListener('submit', (ev) => {
-    ev.preventDefault();
-    overlay.style.display = 'none';
+(function () {
+  const form = document.getElementById('projectForm');
+  form.style.display = 'none';
+  const inp = form.querySelector('input');
+
+  const createProjectBtn = document
+    .getElementById('createProject')
+    .querySelector('button');
+
+  createProjectBtn.addEventListener('click', () => {
+    form.style.display = 'block';
+    inp.focus();
+    inp.addEventListener('blur', () => {
+      form.style.display = 'none';
+    });
   });
-};
+
+  form.addEventListener('submit', () => {
+    form.style.display = 'none';
+  });
+})();

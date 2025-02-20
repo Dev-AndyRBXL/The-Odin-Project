@@ -1,9 +1,10 @@
 --- Overview of the project 
-  Please follow them
+  -- Path: "The Odin Project"/"Full Stack JavaScript"/"JavaScript Course"/Projects/"Todo List"/
+   Please follow the overview.
 ---
 
 - What we'll we do?
-  We'll first create the site's layout to posteriorly add functionality and, lastly, we'll store user's data locally.
+  We'll first create the site's layout to posteriorly add functionality.
 
 # Layout
 
@@ -31,17 +32,14 @@ The main content will be the header & the to-do itself.
   Save progress automatically
   Dark mode toggle
 
-### Others
-
-- save the user's data.
-
--- "The Odin Project"/"Full Stack JavaScript"/"JavaScript Course"/Projects/"Todo List"/
-
-
-Todo:
----
+### Todo:
 
 - Add a checkmark button next to (left side) the tasks
 - Make a pop for each task that display their description
   (when clicked)
 - "Notes" section pending...
+
+#### Notes:
+
+- Add some functionality to:
+  - "userProjects", "item"/"task"

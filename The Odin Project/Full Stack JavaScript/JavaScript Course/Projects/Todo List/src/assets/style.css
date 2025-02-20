@@ -1,3 +1,4 @@
+/* Reset & Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -5,32 +6,35 @@
 }
 
 :root {
-  --primarycolor: #07182c;
-  --secondarycolor: #f5f5f5;
-  --main-color: rgb(253, 253, 253);
-  --commonvalue: 4px;
+  --primary-color: #07182c;
+  --secondary-color: #f5f5f5;
+  --main-color: #fdfdfd;
+  --spacing: 4px;
+  --transition-speed: 0.05s;
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif, system-ui;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: row-reverse;
   height: 100vh;
   width: 100vw;
 }
 
+/* Header */
 body > header {
-  background-color: var(--secondarycolor);
-  color: var(--primarycolor);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Main Content */
 main {
   background-color: var(--main-color);
-  color: var(--primarycolor);
+  color: var(--primary-color);
   width: 100%;
   height: 100%;
   padding: 4rem 3rem;
@@ -44,7 +48,7 @@ main:first-child header {
 
 main:first-child header h1 {
   font-size: 11px;
-  border-bottom: solid 1px #e2e2e2be;
+  border-bottom: solid 1px rgba(226, 226, 226, 0.75);
   padding: 16px 0;
   width: 100%;
 }
@@ -53,7 +57,7 @@ main:first-child header h1 {
 .todo-main {
   max-height: 100%;
   display: flex;
-  gap: var(--commonvalue);
+  gap: var(--spacing);
   flex-direction: column;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -62,94 +66,70 @@ main:first-child header h1 {
 
 main:first-child .item {
   margin-left: 34px;
-  padding: var(--commonvalue);
+  padding: var(--spacing);
+  transition: background-color var(--transition-speed);
 }
 
 main:first-child .item:hover {
-  background-color: #0000000e;
+  background-color: rgba(0, 0, 0, 0.05);
   cursor: pointer;
 }
 
 main:first-child .item:active {
-  background-color: #0000001a;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Sidebar */
 aside {
-  background-color: var(--secondarycolor);
-  color: var(--primarycolor);
-  width: 20vw;
-  min-width: 200px;
-  max-width: 325px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  width: 32px;
   height: 100vh;
   padding: 16px;
+  display: none;
   box-shadow: -15px 2px 30px rgba(0, 0, 0, 0.5);
-  transition: 0.15s ease;
-}
-
-aside > div {
-  transition: 0.15s ease;
+  transition: width var(--transition-speed) ease;
 }
 
 .fa-bars {
   position: fixed;
+  top: 24px;
   left: 305px;
-  transition: 0.15s ease;
+  transition: var(--transition-speed) ease;
 }
 
 .user-profile {
   color: black;
-  border-bottom: 1px #ddd solid;
+  border-bottom: 1px solid #ddd;
   padding: 6px;
-  gap: var(--commonvalue);
+  gap: var(--spacing);
   display: flex;
   align-items: center;
-  transition: 0.15s ease;
 }
 
 #userProfilePicture {
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  transition: 0.15s ease;
 }
 
-.user-info {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-  transition: 0.15s ease;
-}
-
-aside .container {
-  margin-top: 32px;
-  padding: var(--commonvalue);
+/* Sidebar Content */
+.aside-container {
+  margin-top: 8px;
+  padding: var(--spacing);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: 0.15s ease;
 }
 
-#createTask {
-  transition: 0.15s ease;
-}
-
-#createTask button {
-  background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  width: 75%;
-  height: 2rem;
-  gap: var(--commonvalue);
+#topMenu button {
+  width: 100%;
   display: flex;
+  justify-content: start;
   align-items: center;
-  transition: 0.15s ease;
 }
 
-#createTask button:hover {
-  background-color: var(--secondarycolor);
-  filter: brightness(98%);
-}
-
-#todo button {
+button {
   background-color: transparent;
   border: none;
   border-radius: 5px;
@@ -157,87 +137,66 @@ aside .container {
   height: 2rem;
   display: flex;
   align-items: center;
-  transition: 0.15s ease;
+  justify-content: center;
+  gap: var(--spacing);
+  transition: var(--transition-speed) ease;
 }
 
-#todo button:hover {
-  background-color: var(--secondarycolor);
-  filter: brightness(98%);
+button:hover {
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  filter: brightness(98.5%);
 }
 
-#notes button {
-  background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  width: 75%;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  transition: 0.15s ease;
-}
-
-#notes button:hover {
-  background-color: var(--secondarycolor);
-  filter: brightness(98%);
-}
-
-#userProjects {
-  display: grid;
-  gap: 8px;
-  transition: 0.15s ease;
-}
-
-#createProject {
-  margin-left: 8px;
-  margin-bottom: 16px;
-  transition: 0.15s ease;
-}
-
-#createProject button {
-  background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  width: 75%;
-  height: 2rem;
-  gap: var(--commonvalue);
-  display: flex;
-  align-items: center;
-  transition: 0.15s ease;
-}
-
-#createProject button:hover {
-  background-color: var(--secondarycolor);
-  filter: brightness(98%);
-}
-
-#projectForm > input#name {
-  background-color: inherit;
-  text-align: center;
-  border: none;
-  border-bottom: solid 1px #e2e2e2be;
-  padding: var(--commonvalue);
-}
-
-#projectForm > input#name:focus {
-  background-color: var(--secondarycolor);
-  outline: none;
+button:active {
   filter: brightness(97%);
 }
 
-.project button {
-  background-color: transparent;
-  border: none;
-  border-bottom: solid 1px #e2e2e2be;
-  padding: var(--commonvalue);
-  width: 100%;
-  height: 100%;
-  transition: 0.15s ease;
+#userProjects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
 }
 
+#projectForm > input,
+.project button {
+  border-bottom: solid 1px rgba(226, 226, 226, 0.75);
+  padding: var(--spacing);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-speed) ease;
+}
+
+#projectForm > input {
+  background-color: transparent;
+  text-align: center;
+  border: none;
+  border-bottom: solid 1px rgba(226, 226, 226, 0.75);
+}
+
+#projectForm > input:hover {
+  filter: brightness(98.5%);
+}
+
+#projectForm > input:active {
+  filter: brightness(97%);
+}
+
+#projectForm > input:focus {
+  border: none;
+  border-bottom: solid 1px rgba(226, 226, 226, 0.75);
+  outline: none;
+  filter: brightness(98.5%);
+}
+
+#projectForm > input:hover,
 .project button:hover {
   transform: translateY(-2px);
 }
 
+/* Popup Overlay */
 .popup-overlay {
   background-color: rgba(0, 0, 0, 0.25);
   height: 100%;
@@ -249,23 +208,27 @@ aside .container {
 }
 
 #popup {
-  background-color: var(--secondarycolor);
-  border: solid #0000001a;
+  background-color: var(--secondary-color);
+  border: solid rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 32px 48px;
 }
-#popup > form {
+
+#popupForm {
+  background-color: transparent;
+  border: none;
   display: flex;
-  gap: 4px;
   flex-direction: column;
+  gap: var(--spacing);
+}
+
+#popup input {
+  width: 100%;
+  padding: 2px;
 }
 
 #popup input[name='title'] {
   font-weight: bold;
-}
-
-#popup input {
-  padding: 2px;
 }
 
 #popup button {
@@ -274,29 +237,14 @@ aside .container {
   margin-top: 12px;
 }
 
+/* Icons */
 .fa {
   border-radius: 5px;
   padding: 8px;
-  transition: 0.15s;
+  transition: var(--transition-speed);
 }
 
 .fa:hover {
-  background-color: #0000001a;
-  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
   filter: brightness(95%);
-}
-
-button {
-  padding: var(--commonvalue);
-}
-
-button:hover {
-  background-color: var(--secondarycolor);
-  cursor: pointer;
-  filter: brightness(98.5%);
-}
-
-button:active {
-  background-color: var(--secondarycolor);
-  filter: brightness(97%);
 }

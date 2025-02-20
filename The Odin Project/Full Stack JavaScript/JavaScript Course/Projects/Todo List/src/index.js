@@ -1,127 +1,85 @@
-// localStorage.clear();
+import './assets/scripts/ui.js';
+import './assets/style.css';
+
+// localStorage.clear(); // TEST!!!
 
 const todo = (function () {
   const overdueContainer = document.getElementById('overdueContainer');
   const todoContainer = document.getElementById('todoContainer');
 
-  class Node {
-    constructor(data) {
-      this.data = data;
-      this.next = null;
-    }
-  }
-
-  class LinkedList {
-    constructor() {
-      this.head = null;
-    }
-
-    add(data) {
-      const newNode = new Node(data);
-      if (!this.head) {
-        this.head = newNode;
-        return;
-      }
-
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = newNode;
-    }
-
-    toArray() {
-      const arr = [];
-      let current = this.head;
-      while (current) {
-        arr.push(current.data);
-        current = current.next;
-      }
-      return arr;
-    }
-
-    save() {
-      localStorage.setItem('tasks', JSON.stringify(this.toArray()));
-    }
-  }
-
-  const tasks = new LinkedList();
-
-  const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [
     {
       name: 'Create a new project',
       desc: '',
       dueDate: '',
-      priority: 4,
+      priority: '4',
       completed: false,
+      project: 'undefined',
     },
     {
       name: 'Add a new task',
       desc: '',
       dueDate: '',
-      priority: 4,
+      priority: '4',
       completed: false,
+      project: 'undefined',
     },
   ];
 
-  savedTasks.forEach((task) => tasks.add(task));
+  function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
 
   function render() {
     overdueContainer.innerHTML = '';
     todoContainer.innerHTML = '';
 
     const today = new Date();
-    const taskArray = tasks.toArray();
 
-    taskArray.forEach((task, index) => {
+    for (let i = 0; i < tasks.length; i++) {
+      const task = tasks[i];
+
       const taskDate = new Date(task.dueDate);
-
-      const newDiv = () => document.createElement('div'); // lmao
-
-      const div = newDiv();
+      const div = document.createElement('div');
       div.classList.add('item');
-      div.dataset.itemIndex = index;
+      div.dataset.itemIndex = i;
 
-      const top = newDiv();
+      const top = document.createElement('div');
       top.classList.add('top');
-      const topContainer = newDiv();
+      const topContainer = document.createElement('div');
       topContainer.classList.add('top-container');
-      const checkbox = newDiv();
+      const checkbox = document.createElement('div');
       checkbox.classList.add('item-checkbox');
-      const title = newDiv();
+      const title = document.createElement('div');
       title.innerText = task.name;
       title.classList.add('item-title');
-      const desc = newDiv(); // show in task-info (when the user clicks on the task) - PENDING
+      const desc = document.createElement('div'); // PENDING: Add in item/task overview; show after interaction with it
       desc.innerText = task.desc;
       desc.classList.add('item-description');
 
-      topContainer.appendChild(checkbox);
-      topContainer.appendChild(title);
+      topContainer.append(checkbox, title);
       top.appendChild(topContainer);
 
-      const bottom = newDiv();
+      const bottom = document.createElement('div');
       bottom.classList.add('bottom');
-      const bottomContainer = newDiv();
+      const bottomContainer = document.createElement('div');
       bottomContainer.classList.add('bottom-container');
       bottomContainer.style.cssText =
         'background-color: inherit; border: none;';
       const el = document.createElement('i');
-      el.innerText = '#';
+      el.innerText = `# ${task.project}`;
+      const dueDate = document.createElement('div');
+      dueDate.innerText = task.dueDate
+        ? task.dueDate.split('T').join(' at ')
+        : 'No due date';
       const button = document.createElement('button');
-      const dueDate = newDiv();
-      task.dueDate
-        ? (dueDate.innerText = task.dueDate.split('T').join(' at '))
-        : (dueDate.innerText = 'No due date');
-      const priority = newDiv();
-      priority.innerText = 'Priority:' + task.priority;
+      const priority = document.createElement('div');
+      priority.innerText = `Priority: ${task.priority}`;
 
-      bottomContainer.appendChild(el);
-      bottomContainer.appendChild(button);
-      bottomContainer.appendChild(dueDate);
+      button.appendChild(el);
+      bottomContainer.append(dueDate, priority, button);
       bottom.appendChild(bottomContainer);
-
-      div.appendChild(top);
-      div.appendChild(bottom);
+      div.append(top, bottom);
 
       if (!task.dueDate) {
         todoContainer.appendChild(div);
@@ -130,52 +88,92 @@ const todo = (function () {
       } else {
         todoContainer.appendChild(div);
       }
-    });
+    }
+    const projects = JSON.parse(localStorage.getItem('projects'));
+
+    if (projects) {
+      const container = document.getElementById('userProjectsContainer');
+      projects.forEach((project) => {
+        const projectDiv = document.createElement('div');
+        projectDiv.innerHTML = project;
+        container.appendChild(projectDiv);
+      });
+    }
   }
 
   function add(task) {
-    tasks.add(task);
-    tasks.save();
+    tasks.push(task);
+    saveTasks();
     render();
   }
 
   render();
 
-  return {
-    add,
-  };
+  return { add };
 })();
 
 (function () {
   const form = document.getElementById('popupForm');
+  const overlay = document.getElementById('popupOverlay');
+  const createTaskButton = document
+    .getElementById('createTask')
+    ?.querySelector('button');
+
+  if (createTaskButton) {
+    createTaskButton.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+    });
+  }
+
+  overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+  });
+
+  form.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+  });
 
   form.addEventListener('submit', (ev) => {
     ev.preventDefault();
 
     const formData = new FormData(form);
-    const task = {};
-
-    for (const [key, value] of formData.entries()) {
-      task[key] = value;
-    }
-
+    const task = Object.fromEntries(formData.entries());
     task.completed = false;
+
     todo.add(task);
+    form.reset();
+    overlay.style.display = 'none';
+  });
+})();
+
+function createProjectElement(name, parent) {
+  if (name.length <= 3) return;
+
+  const div = document.createElement('div');
+  div.innerHTML = `
+  <div class="project" id="${name.replace(/\s+/g, ' ').split(' ').join('-')}">
+    <button>
+      <h4>${name.replace(/\s+/g, ' ')}</h4>
+    </button>
+  </div>
+  `;
+  parent.appendChild(div);
+
+  const existingProjects = JSON.parse(localStorage.getItem('projects')) || [];
+  existingProjects.push(div.innerHTML);
+
+  localStorage.setItem('projects', JSON.stringify(existingProjects));
+}
+
+(function () {
+  const form = document.getElementById('projectForm');
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+
+    const formData = new FormData(form);
+    const project = Object.fromEntries(formData.entries());
+    createProjectElement(project.name, form.parentElement);
 
     form.reset();
   });
 })();
-
-/* PENDING
- (function () {
-  const form = document.getElementById('projectForm');
-
-  form.addEventListener('submit', (ev) => {
-    ev.preventDefault();
-
-    const formData = new FormData(form);
-  })
-})();
- **/
-
-console.log('a' + 'b');
