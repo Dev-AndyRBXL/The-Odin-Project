@@ -1,7 +1,8 @@
-import './assets/scripts/ui.js';
 import './assets/style.css';
+import './assets/scripts/inputHandler.js';
+import './assets/scripts/ui.js';
 
-// localStorage.clear(); // TEST!!!
+localStorage.clear(); // TEST!!!
 
 const todo = (function () {
   const overdueContainer = document.getElementById('overdueContainer');
@@ -73,6 +74,10 @@ const todo = (function () {
         ? task.dueDate.split('T').join(' at ')
         : 'No due date';
       const button = document.createElement('button');
+      button.classList.add('itemProject');
+      button.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+      });
       const priority = document.createElement('div');
       priority.innerText = `Priority: ${task.priority}`;
 
@@ -89,16 +94,28 @@ const todo = (function () {
         todoContainer.appendChild(div);
       }
     }
-    const projects = JSON.parse(localStorage.getItem('projects'));
 
-    if (projects) {
-      const container = document.getElementById('userProjectsContainer');
-      projects.forEach((project) => {
-        const projectDiv = document.createElement('div');
-        projectDiv.innerHTML = project;
-        container.appendChild(projectDiv);
-      });
-    }
+    const projects =
+      JSON.parse(localStorage.getItem('projects')) ||
+      `
+      <div
+        class="project"
+        id=""
+      >
+        <button>
+          <h4>My First Project</h4>
+        </button>
+      </div>
+      `;
+
+    const container = document.getElementById('userProjectsContainer');
+    container.innerHTML = '';
+
+    projects.forEach((project) => {
+      const projectDiv = document.createElement('div');
+      projectDiv.innerHTML = project;
+      container.appendChild(projectDiv);
+    });
   }
 
   function add(task) {
@@ -107,9 +124,7 @@ const todo = (function () {
     render();
   }
 
-  render();
-
-  return { add };
+  return { add, render };
 })();
 
 (function () {
@@ -147,7 +162,13 @@ const todo = (function () {
 })();
 
 function createProjectElement(name, parent) {
-  if (name.length <= 3) return;
+  if (name.length < 3) {
+    console.log('please enter 3 or more characters');
+    return;
+  } else if (name.length > 15) {
+    console.log('please enter less than 16 characters');
+    return;
+  }
 
   const div = document.createElement('div');
   div.innerHTML = `
@@ -159,7 +180,7 @@ function createProjectElement(name, parent) {
   `;
   parent.appendChild(div);
 
-  const existingProjects = JSON.parse(localStorage.getItem('projects')) || [];
+  const existingProjects = JSON.parse(localStorage.getItem('projects'));
   existingProjects.push(div.innerHTML);
 
   localStorage.setItem('projects', JSON.stringify(existingProjects));
@@ -177,3 +198,7 @@ function createProjectElement(name, parent) {
     form.reset();
   });
 })();
+
+while (true) {
+  todo.render();
+}

@@ -11,7 +11,7 @@
   </head>
   <body>
     <main class="main" id="main">
-      <div class="main-container">
+      <div class="main-container" id="mainContainer">
         <h2>Todo</h2>
 
         <section class="overdue-main">
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div class="aside-container">
+      <div class="aside-container" id="asideContainer">
         <div id="topMenu">
           <div id="createTask">
             <button>
@@ -78,10 +78,8 @@
             </div>
 
             <div class="user-projects-container" id="userProjectsContainer">
-              <div class="project" id="My-Project-1">
-                <button><h4>My Project 1</h4></button>
-              </div>
             </div>
+
             <form
               class="form"
               id="projectForm"
@@ -112,8 +110,8 @@
           enctype="multipart/form-data"
           method="post"
         >
+          <h3 style="padding-bottom: calc(1rem / 2)">New Task</h3>
           <fieldset>
-            <legend>New Task</legend>
             <p>
               <input
                 type="text"
@@ -128,6 +126,7 @@
                 type="text"
                 name="desc"
                 id="desc"
+                autocomplete="off"
                 placeholder="Description"
               />
             </p>

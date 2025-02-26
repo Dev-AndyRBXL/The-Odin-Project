@@ -1,7 +1,5 @@
 const main = (function () {
-  const container = document
-    .getElementById('main')
-    .querySelector('.main-container');
+  const container = document.getElementById('mainContainer');
   const carets = container.querySelectorAll('.fa');
 
   carets.forEach((caret) => {
@@ -32,7 +30,7 @@ const main = (function () {
   function toggleAside() {
     const isOpen = aside.classList.toggle('open');
 
-    aside.style.width = isOpen ? 'auto' : '32px';
+    aside.style.width = isOpen ? 'auto' : '0';
     aside.style.display = isOpen ? 'block' : 'none';
 
     updateBarsPosition();
@@ -61,10 +59,6 @@ const main = (function () {
 
   overlay.addEventListener('click', () => {
     overlay.style.display = 'none';
-  });
-
-  popup.addEventListener('click', (ev) => {
-    ev.stopPropagation();
   });
 })();
 
