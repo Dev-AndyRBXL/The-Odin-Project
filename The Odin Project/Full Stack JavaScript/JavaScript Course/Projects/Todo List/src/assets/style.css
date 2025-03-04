@@ -118,6 +118,9 @@ aside {
   width: 32px;
   height: 32px;
 }
+:nth-child(2) {
+
+}
 
 /* Sidebar Content */
 .aside-container {
