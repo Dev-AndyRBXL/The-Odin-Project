@@ -118,9 +118,6 @@ aside {
   width: 32px;
   height: 32px;
 }
-:nth-child(2) {
-
-}
 
 /* Sidebar Content */
 .aside-container {
@@ -264,6 +261,20 @@ button:active {
   font-weight: bolder;
   text-align: start;
   padding-left: var(--spacing);
+}
+
+.formOverlay {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#itemProjectForm {
+  padding: 16px;
 }
 
 /* Icons */

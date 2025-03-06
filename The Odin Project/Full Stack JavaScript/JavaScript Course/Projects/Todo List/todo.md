@@ -1,6 +1,7 @@
 --- Overview of the project 
   -- Path: "The Odin Project"/"Full Stack JavaScript"/"JavaScript Course"/Projects/"Todo List"/
    Please follow the overview.
+  -- "//" means that it is still pending UnU
 ---
 
 - What we'll we do?
@@ -21,16 +22,17 @@ The main content will be the header & the to-do itself.
 ## Functionality
 
 - Core Features
-  Add, edit, delete tasks
-  Mark tasks as complete
-  Organize tasks by project
+  Add, edit, delete tasks //
+  Mark tasks as complete // 
+  Organize tasks by project //
   Set deadlines & priorities
-  Filter & search tasks
+  Filter & search tasks //
+  Notes //
 
 - Advanced Features (Optional)
-  Drag-and-drop to reorder tasks
-  Save progress automatically
-  Dark mode toggle
+  Drag-and-drop to reorder tasks //
+  Save progress automatically 
+  Dark mode toggle //
 
 ### Todo:
 
@@ -42,4 +44,4 @@ The main content will be the header & the to-do itself.
 #### Notes:
 
 - Add some functionality to:
-  - "userProjects", "item"/"task"
+- "userProjects", "item"/"task"

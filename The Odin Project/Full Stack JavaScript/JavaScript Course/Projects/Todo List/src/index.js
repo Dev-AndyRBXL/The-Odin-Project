@@ -2,8 +2,6 @@ import './assets/style.css';
 import './assets/scripts/inputHandler.js';
 import './assets/scripts/ui.js';
 
-localStorage.clear(); // TEST!!!
-
 const todo = (function () {
   const overdueContainer = document.getElementById('overdueContainer');
   const todoContainer = document.getElementById('todoContainer');
@@ -39,7 +37,6 @@ const todo = (function () {
 
     for (let i = 0; i < tasks.length; i++) {
       const task = tasks[i];
-
       const taskDate = new Date(task.dueDate);
       const div = document.createElement('div');
       div.classList.add('item');
@@ -54,7 +51,7 @@ const todo = (function () {
       const title = document.createElement('div');
       title.innerText = task.name;
       title.classList.add('item-title');
-      const desc = document.createElement('div'); // PENDING: Add in item/task overview; show after interaction with it
+      const desc = document.createElement('div');
       desc.innerText = task.desc;
       desc.classList.add('item-description');
 
@@ -78,6 +75,7 @@ const todo = (function () {
       button.addEventListener('click', (ev) => {
         ev.stopPropagation();
       });
+
       const priority = document.createElement('div');
       priority.innerText = `Priority: ${task.priority}`;
 
@@ -95,33 +93,34 @@ const todo = (function () {
       }
     }
 
-    const projects =
-      JSON.parse(localStorage.getItem('projects')) ||
-      `
-      <div
-        class="project"
-        id=""
-      >
-        <button>
-          <h4>My First Project</h4>
-        </button>
-      </div>
-      `;
-
-    const container = document.getElementById('userProjectsContainer');
-    container.innerHTML = '';
-
-    projects.forEach((project) => {
-      const projectDiv = document.createElement('div');
-      projectDiv.innerHTML = project;
-      container.appendChild(projectDiv);
-    });
+    renderProjects();
   }
 
   function add(task) {
     tasks.push(task);
     saveTasks();
     render();
+  }
+
+  function renderProjects() {
+    const container = document.getElementById('userProjectsContainer');
+    container.innerHTML = '';
+
+    let projects = JSON.parse(localStorage.getItem('projects')) || [];
+
+    projects.forEach((projectName) => {
+      const projectDiv = document.createElement('div');
+      projectDiv.classList.add('project');
+      projectDiv.id = projectName.replace(/\s+/g, '-');
+
+      const button = document.createElement('button');
+      const title = document.createElement('h4');
+      title.innerText = projectName;
+
+      button.appendChild(title);
+      projectDiv.appendChild(button);
+      container.appendChild(projectDiv);
+    });
   }
 
   return { add, render };
@@ -162,27 +161,36 @@ const todo = (function () {
 })();
 
 function createProjectElement(name, parent) {
+  name = name.trim();
+
   if (name.length < 3) {
-    console.log('please enter 3 or more characters');
+    console.log('Please enter 3 or more characters');
     return;
   } else if (name.length > 15) {
-    console.log('please enter less than 16 characters');
+    console.log('Please enter less than 16 characters');
+    return;
+  }
+
+  let existingProjects = JSON.parse(localStorage.getItem('projects')) || [];
+
+  if (existingProjects.includes(name)) {
+    console.log('Project already exists');
     return;
   }
 
   const div = document.createElement('div');
-  div.innerHTML = `
-  <div class="project" id="${name.replace(/\s+/g, ' ').split(' ').join('-')}">
-    <button>
-      <h4>${name.replace(/\s+/g, ' ')}</h4>
-    </button>
-  </div>
-  `;
+  div.classList.add('project');
+  div.id = name.replace(/\s+/g, '-');
+
+  const button = document.createElement('button');
+  const title = document.createElement('h4');
+  title.innerText = name;
+
+  button.appendChild(title);
+  div.appendChild(button);
   parent.appendChild(div);
 
-  const existingProjects = JSON.parse(localStorage.getItem('projects'));
-  existingProjects.push(div.innerHTML);
-
+  existingProjects.push(name);
   localStorage.setItem('projects', JSON.stringify(existingProjects));
 }
 
@@ -199,6 +207,4 @@ function createProjectElement(name, parent) {
   });
 })();
 
-while (true) {
-  todo.render();
-}
+todo.render();

@@ -1,6 +1,7 @@
 const userProjectsContainer = document.getElementById('userProjectsContainer');
 const projects = userProjectsContainer.querySelectorAll('.project')
 
-function deleteProject() {
+// I need to handle input (shift + del)
+function deleteProject() { 
     
 }
