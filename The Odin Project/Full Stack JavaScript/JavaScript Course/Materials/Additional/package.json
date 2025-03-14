@@ -1,0 +1,21 @@
+{
+  "name": "my-first-package",
+  "version": "1.0.0",
+  "description": "Basic package for image carousel and dropdown menus",
+  "main": "index.js",
+  "scripts": {
+    "test": "myFirstPackage"
+  },
+  "keywords": [
+    "\"image",
+    "carousel\"",
+    "\"carousel\"",
+    "\"dropdown\"",
+    "\"myfirstpackage\""
+  ],
+  "author": "Someone",
+  "license": "MIT",
+  "dependencies": {
+    "my-first-package": "^1.0.1"
+  }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="index.js" defer></script> -->
+    <style>
+      body {
+        background-color: #333;
+        font-family: Helvetica, sans-serif;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 1rem;
+      }
+
+      nav {
+        padding: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #searchbar {
+        width: 32rem;
+      }
+
+      .container {
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <input type="text" name="searchbar" id="searchbar" />
+      </nav>
+    </header>
+
+    <div class="container">
+      <img src="#" alt="" />
+    </div>
+
+    <script>
+      const imgs = document.querySelectorAll('img');
+      const searchbar = document.getElementById('searchbar');
+
+      const names = [
+        'Mario',
+        'Luigi',
+        'Peach',
+        'Bowser',
+        'Yoshi',
+        'Toad',
+        'Daisy',
+        'Wario',
+        'Waluigi',
+        'Rosalina',
+        'Link',
+        'Zelda',
+        'Ganondorf',
+        'Samus',
+        'Kirby',
+        'Pikachu',
+        'Sonic',
+        'Tails',
+        'Knuckles',
+
+        'Zeus',
+        'Athena',
+        'Hercules',
+        'Odin',
+        'Thor',
+        'Loki',
+        'Freya',
+        'Apollo',
+        'Poseidon',
+        'Ares',
+
+        'Sherlock',
+        'Watson',
+        'Frodo',
+        'Gandalf',
+        'Dumbledore',
+        'Voldemort',
+        'Dracula',
+        'Frankenstein',
+      ];
+
+      let randomName = names[Math.floor(Math.random() * names.length)];
+      searchbar.placeholder = randomName;
+
+      document.addEventListener(
+        'keyup',
+        (ev) => {
+          if (ev.defaultPrevented) return;
+
+          if (ev.key === 'Enter') {
+            imgs.forEach(async (img) => {
+              fetch(
+                `https://api.giphy.com/v1/gifs/translate?api_key=Aw3gWB8hNrTYLwATQDaP47cBQj9yZHv1&s=${searchbar.value.trim()}`,
+                { mode: 'cors' }
+              )
+                .then(function (response) {
+                  return response.json();
+                })
+                .then(function (val) {
+                    if (val.status === 404) return;
+
+                  img.src = val.data.images.original.url;
+                })
+                .catch(function (response) {
+                  console.error(`Oops... something went wrong:\n ${response}`);
+                });
+            });
+          }
+
+          ev.preventDefault();
+        },
+        true
+      );
+
+      searchbar.addEventListener('input', () => {
+        if (searchbar.value.trim().length === 0) {
+          randomName = names[Math.floor(Math.random() * names.length)];
+          searchbar.placeholder = randomName;
+        }
+      });
+    </script>
+  </body>
+</html>

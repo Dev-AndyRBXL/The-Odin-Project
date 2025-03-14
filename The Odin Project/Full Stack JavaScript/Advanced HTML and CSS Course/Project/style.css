@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--main-text-color);
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+
+  --main-text-color: black;
+  --min-width: 320px;
+  --common-spacing: 6px;
+}
+
+body {
+}
+
+.main-nav {
+  background-color: rgb(250, 250, 250);
+  min-height: 3rem;
+  position: sticky;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 15px solid black;
+}
+
+.main-nav .container {
+  padding: 8px;
+  width: 100%;
+  min-width: var(--min-width);
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+}
+
+section {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--common-spacing);
+}
+
+.about {
+  background-color: #e9e9e9;
+}
+
+.projects {
+  background-color: #f7f7f7;
+}
+
+.contact {
+  background-color: #fff;
+}
+
+.contact-info {
+  padding: var(--common-spacing);
+  word-spacing: var(--common-spacing);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+}
+
+.card {
+  background-color: white;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--common-spacing);
+}
+
+.card::before {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 6px 0 0 6px;
+  content: '';
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card-description {
+}
+
+.card-actions {
+  padding-top: 4px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.dropdownBtn {
+  /* it is part of main-nav */
+  background-color: transparent;
+  border-radius: 6px;
+  border: none;
+  padding: var(--common-spacing);
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: var(--common-spacing);
+}
+
+a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.25rem;
+}

@@ -1,0 +1,253 @@
+class Node {
+  constructor(value) {
+    this.data = value ?? 0;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  append(...values) {
+    values.forEach((val) => {
+      const node = new Node(val);
+
+      if (this.head === null) {
+        this.head = node;
+        this.tail = node;
+      } else {
+        this.tail.next = node;
+        this.tail = node;
+      }
+
+      this.length++;
+    });
+  }
+
+  prepend(value) {
+    const node = new Node(value);
+    node.next = this.head;
+    this.head = node;
+
+    if (this.length === 0) {
+      this.tail = node;
+    }
+
+    this.length++;
+  }
+
+  at(index) {
+    let curr = this.head;
+
+    if (index === 0) {
+      return curr ?? `Element at index ${index} is not in the list!`;
+    } else if (this.length <= index) {
+      console.warn(
+        `The index is not between 0 and the list's length (${this.length - 1})`
+      );
+      return;
+    }
+
+    for (let i = 0; i < index; i++) {
+      if (!curr) {
+        return `Element at index ${index} is not in the list!`;
+      }
+      curr = curr.next;
+    }
+    return curr ?? `Element at index ${index} is not in the list!`;
+  }
+
+  pop() {
+    let curr = this.head,
+      prev;
+    if (!curr) return;
+
+    while (curr.next) {
+      prev = curr;
+      curr = curr.next;
+    }
+
+    if (prev) {
+      prev.next = null;
+      this.tail = prev;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+
+    this.length--;
+  }
+
+  contains(value) {
+    let curr = this.head;
+    while (curr) {
+      if (curr.data === value) {
+        return true;
+      }
+      curr = curr.next;
+    }
+    return false;
+  }
+
+  find(value) {
+    let indexes = [];
+    let index = 0;
+    let curr = this.head;
+
+    while (curr) {
+      if (curr.data === value) {
+        indexes.push(index);
+      }
+      index++;
+      curr = curr.next;
+    }
+
+    return indexes.length ? indexes : null;
+  }
+
+  insertAt(value, index) {
+    if (index < 0 || index > this.length) {
+      console.warn(`Index is out of bounds`);
+      return;
+    }
+
+    const node = new Node(value);
+
+    if (index === 0) {
+      node.next = this.head;
+      this.head = node;
+      if (this.length === 0) this.tail = node;
+    } else {
+      let curr = this.head;
+      let i = 0;
+
+      while (curr) {
+        if (i === index - 1) {
+          node.next = curr.next;
+          curr.next = node;
+          if (!node.next) this.tail = node;
+          break;
+        }
+        curr = curr.next;
+        i++;
+      }
+    }
+
+    this.length++;
+  }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.length) {
+      console.warn(`Index is out of bounds`);
+      return;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      if (this.length === 1) this.tail = null;
+    } else {
+      let curr = this.head;
+      let prev;
+      let i = 0;
+
+      while (curr) {
+        if (i === index) {
+          prev.next = curr.next;
+          if (!prev.next) this.tail = prev;
+          break;
+        }
+        prev = curr;
+        curr = curr.next;
+        i++;
+      }
+    }
+
+    this.length--;
+  }
+
+  toString() {
+    let list = [];
+    let curr = this.head;
+    while (curr) {
+      list.push(curr.data);
+      curr = curr.next;
+    }
+    return list.join(' -> ');
+  }
+
+  getTail() {
+    return this.tail;
+  }
+
+  getHead() {
+    return this.head;
+  }
+
+  getLength() {
+    return this.length;
+  }
+
+  getElements() {
+    return this.toString();
+  }
+}
+
+const linkedList = new LinkedList();
+
+linkedList.append(1);
+linkedList.append(2);
+linkedList.prepend(0);
+
+console.log("List after appending 1, 2 and prepending 0:");
+console.log(linkedList.getElements());
+
+console.log("Element at index 1:");
+console.log(linkedList.at(1)); 
+
+console.log("Element at invalid index 5:");
+console.log(linkedList.at(5)); 
+
+console.log("Does the list contain value 1?");
+console.log(linkedList.contains(1)); 
+
+console.log("Does the list contain value 3?");
+console.log(linkedList.contains(3));
+
+console.log("Finding all indexes of value 2:");
+console.log(linkedList.find(2)()); 
+
+console.log("Finding all indexes of value 5:");
+console.log(linkedList.find(5)());
+
+linkedList.insertAt(3, 1);
+console.log("List after inserting 3 at index 1:");
+console.log(linkedList.getElements()); 
+
+linkedList.insertAt(4, 10);
+
+linkedList.removeAt(1);
+console.log("List after removing element at index 1:");
+console.log(linkedList.getElements()); 
+
+linkedList.pop();
+console.log("List after popping the last element:");
+console.log(linkedList.getElements());
+
+linkedList.removeAt(0);
+console.log("List after removing element at index 0:");
+console.log(linkedList.getElements());
+
+console.log("Tail element:");
+console.log(linkedList.getTail());
+
+console.log("Head element:");
+console.log(linkedList.getHead());
+
+console.log("List length:");
+console.log(linkedList.getLength());
+
+// the testing was generated by ai so don't mind the *obvious* ai text lol (for edge cases, et cetera.)

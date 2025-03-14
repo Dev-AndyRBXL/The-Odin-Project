@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Form data validation :D -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="error" id="error"></div>
+    <form action="#" method="get" novalidate>
+      <div>
+        <label for="name"></label>
+        <input type="text" name="name" id="name" placeholder="Name" />
+      </div>
+      <div>
+        <label for="password"></label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          placeholder="Password"
+        />
+      </div>
+      <button type="submit" hidden></button>
+    </form>
+    <div class ="error" id="error2"></div>
+    <form action="#" method="get" id="form2" novalidate>
+      <p>
+        <label for="mail"></label>
+        <input type="email" name="mail" id="mail" placeholder="Email" required />
+      </p>
+      <button type="submit" hidden></button>
+    </form>
+  </body>
+</html>
