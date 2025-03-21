@@ -34,7 +34,7 @@ class HashMap {
       let prev = null;
       while (curr) {
         if (curr.key === key) {
-          curr.value = value; // Update existing key
+          curr.value = value;
           return;
         }
         prev = curr;
