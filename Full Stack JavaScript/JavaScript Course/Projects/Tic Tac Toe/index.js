@@ -138,7 +138,7 @@ const game = (function () {
   ];
 
   function createBoard() {
-    boardElement.innerHTML = ""; // Clear previous board
+    boardElement.innerHTML = ""; 
     board.forEach((cell, index) => {
       const cellElement = document.createElement("div");
       cellElement.classList.add("cell");
@@ -192,6 +192,5 @@ const game = (function () {
 
 restartButton.addEventListener("click", game.restartGame);
 
-// Initial Setup
 game.createBoard();
 messageElement.textContent = `It's X's turn.`;

@@ -1,0 +1,26 @@
+.market-container {
+  height: calc(100vh - var(--header-height));
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.market-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.market-content {
+  display: flex;
+  gap: 24px;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.market-outlet {
+  overflow-y: auto;
+  flex-grow: 1;
+  max-height: calc(100vh - 100px - var(--header-height));
+}

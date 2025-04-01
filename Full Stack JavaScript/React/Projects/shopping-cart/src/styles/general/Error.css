@@ -1,0 +1,16 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--common-spacing);
+}
+
+.gif {
+  min-width: 8rem;
+  min-height: 8rem;
+  max-width: 24rem;
+  max-height: 24rem;
+}

@@ -1,0 +1,9 @@
+#root {
+  background-color: #2e2e2e;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.card:hover {
+  cursor: pointer;
+}

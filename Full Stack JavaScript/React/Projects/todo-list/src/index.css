@@ -1,0 +1,42 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --main-color: rgb(38, 124, 204);
+}
+
+label {
+  font-size: larger;
+  font-weight: bold;
+}
+
+input {
+  font-weight: bold;
+  border-radius: 5px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid #ffffffef;
+}
+
+button {
+  font-weight: bold;
+  background-color: #2b2b2b;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px;
+}
+button:hover {
+  cursor: pointer;
+}

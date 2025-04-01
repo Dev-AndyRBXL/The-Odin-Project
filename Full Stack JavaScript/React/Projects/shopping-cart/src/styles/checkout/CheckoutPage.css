@@ -1,0 +1,32 @@
+#root {
+  --header-height: 100px;
+  --common-spacing: 1rem;
+  --primary-color: #3a86ff;
+  --text-light: #e0e0e0;
+  --text-dim: #a0a0a0;
+}
+
+main {
+  background-color: #1a1a1a;
+  min-height: calc(100vh - var(--header-height) - 16px);
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.checkout {
+  background-color: #2b2b2b;
+  max-width: 720px;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--text-light);
+}

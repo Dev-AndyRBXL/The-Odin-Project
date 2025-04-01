@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #fcfcfc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --header-height: 100px;
+  --common-spacing: 4px;
+}
+
+#root {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+:where(h1) {
+  margin-block: 0;
+  font-size: 2em;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
+a:hover {
+  filter: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f3f3f3;
+    background-color: #181818;
+  }
+  a {
+    color: #f1f1f1;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #fff;
+  }
+  a:visited {
+    color: #f1f1f1;
+  }
+}

@@ -1,0 +1,28 @@
+.container {
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.new-item-form {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+                              
+.list {
+  list-style-type: none;
+}
+
+.checkbox:hover {
+  cursor: pointer;
+}

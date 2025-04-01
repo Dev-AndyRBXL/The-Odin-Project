@@ -1,0 +1,143 @@
+:root {
+  --header-height: 60px;
+  --primary-color: #3a86ff;
+  --text-light: #e0e0e0;
+  --text-dim: #a0a0a0;
+  --bg-dark: #2b2b2b;
+  --bg-darker: #1a1a1a;
+}
+
+.site-header {
+  background-color: var(--bg-dark);
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.site-logo {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.site-logo a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.site-logo a:hover {
+  color: var(--primary-color);
+}
+
+.header-wrapper-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.main-navigation {
+  height: 100%;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 0.5rem;
+}
+
+.nav-link:hover {
+  color: var(--text-light);
+}
+
+.cart-btn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.cart-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-badge-plus {
+  width: 22px;
+  height: 18px;
+  border-radius: 9px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-wrapper-right {
+    gap: 1rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .site-logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.25rem;
+  }
+}

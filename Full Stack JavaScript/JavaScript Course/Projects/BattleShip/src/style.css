@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  background-color: #1e1e1e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+}
+
+.gameboard {
+  background-color: #303030;
+  border: 3px solid rgb(68, 68, 68);
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  gap: 3px;
+}
+
+.cell {
+  background-color: rgb(29, 29, 29);
+  border: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.hit,
+.missed-surrounding {
+  background-color: #414141;
+  color: white;
+}
+
+.miss {
+    background-color: #684343;
+    color: whitesmoke;
+}
